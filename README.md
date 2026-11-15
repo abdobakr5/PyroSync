@@ -56,8 +56,6 @@ PyroSync/
 │   ├── bronze_viirs_raw/                # 1.4M+ raw VIIRS S-NPP partitions (9 countries)
 │   ├── gold_calendar_maps_and_stats/    # Daily calendar, monthly grids & audit proofs
 │   └── gold_detection_level_and_ai/     # Matched pairs & ML feature store Parquets
-│
-└── docs/                      # 6. Architecture Guides, System Diagrams & Pitch Deck
 ```
 
 ---
