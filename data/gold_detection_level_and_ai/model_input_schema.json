@@ -1,0 +1,52 @@
+{
+ "grain": "one row per compared detection",
+ "gold_run_id": "gold_20261113T013051Z_6b529f",
+ "matching_rule_version": "match-1.1.0",
+ "rows": 645655,
+ "split_rule": {
+  "train": "year <= 2019",
+  "validation": "2019 < year <= 2021",
+  "test": "year > 2021"
+ },
+ "split_counts": {
+  "train": 521084,
+  "validation": 124571
+ },
+ "columns": {
+  "detection_id": "string - Silver detection_id (key)",
+  "instrument": "MODIS | VIIRS",
+  "satellite": "Terra | Aqua | S-NPP | NOAA-20 | NOAA-21",
+  "region": "country name",
+  "acquisition_timestamp": "UTC timestamp",
+  "year": "int",
+  "month": "int 1-12",
+  "local_solar_hour": "float, hours",
+  "daynight": "D | N",
+  "latitude": "deg",
+  "longitude": "deg",
+  "frp_mw": "MW",
+  "brightness_mir_k": "K (~4 um channel)",
+  "brightness_tir_k": "K (~11 um channel)",
+  "brightness_difference_k": "K, mir - tir",
+  "scan_km": "km",
+  "track_km": "km",
+  "pixel_area_km2": "km2",
+  "confidence_class": "low | nominal | high (sensor-specific meaning)",
+  "match_status": "matched | candidate_unassigned | modis_only | viirs_only (candidate target)",
+  "n_candidates": "int, candidate pairs for a MODIS detection (0 for VIIRS rows)",
+  "other_sensor_distance_m": "m, pair distance if matched, else nearest other-sensor detection in the time window",
+  "other_sensor_pass_evidence": "bool, the other sensor detected any fire nearby at that time",
+  "cell_fire_days_prior_12m": "float, fire-days in the same 0.1 deg cell over the previous 12 months (all sensors)",
+  "split": "train | validation | test",
+  "spatial_block": "string, 1 deg tile id"
+ },
+ "prediction_output_schema": {
+  "prediction_id": "string",
+  "input_record_id": "string",
+  "model_name": "string",
+  "model_version": "string",
+  "prediction_label": "string",
+  "prediction_score": "float",
+  "inference_timestamp": "timestamp (UTC)"
+ }
+}

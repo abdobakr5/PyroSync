@@ -1,0 +1,64 @@
+{
+ "run_id": "gold_20261113T013051Z_6b529f",
+ "created_at": "2026-11-13T01:31:52+00:00",
+ "silver_detections": 2550671,
+ "analysis_detections": 1524167,
+ "comparison_period": [
+  "2012-01-20 00:00:00+00:00",
+  "2022-01-01 00:00:00+00:00"
+ ],
+ "compared_modis": 71028,
+ "compared_viirs": 574627,
+ "match_status_counts": {
+  "viirs_only": 482640,
+  "matched": 91987,
+  "modis_only": 30441,
+  "candidate_unassigned": 7508
+ },
+ "matching_config": {
+  "rule_version": "match-1.1.0",
+  "modis_satellites": [
+   "Aqua"
+  ],
+  "viirs_satellites": [
+   "S-NPP"
+  ],
+  "vegetation_only": true,
+  "exclude_static_sources": true,
+  "exclude_low_confidence": false,
+  "spatial": {
+   "mode": "footprint",
+   "fixed_threshold_m": 1500,
+   "footprint_factor": 1.0,
+   "min_threshold_m": 750,
+   "max_threshold_m": 5000
+  },
+  "temporal_threshold_seconds": 3600,
+  "comparison_end": "2021-12-31",
+  "pass_evidence_radius_km": 1000,
+  "sensitivity": {
+   "spatial_m": [
+    750,
+    1500,
+    3000,
+    5000
+   ],
+   "temporal_s": [
+    600,
+    1200,
+    2400,
+    3600,
+    5400
+   ]
+  }
+ },
+ "calendar": {
+  "start": "2003-01-01",
+  "end": "2025-12-31",
+  "regions": 9,
+  "calendar_days": 75609,
+  "grid_rows": 219409,
+  "detections_used": 1031560
+ },
+ "reconciliation_passed": true
+}

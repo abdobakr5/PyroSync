@@ -1,0 +1,1413 @@
+{
+  "meta": {
+    "algorithm": "Spatial DBSCAN (eps=0.22 deg, min_samples=3) + Physical FRP/Seasonality Regime Classifier",
+    "total_major_clusters": 35,
+    "regime_distribution": {
+      "Mixed Woodland & Scrubland Fire": 3,
+      "Agricultural / Crop-Residue Burn": 24,
+      "High-Intensity Forest Wildfire": 8
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "turkey-cluster-1",
+      "region": "Turkey",
+      "name": "Turkey Zone #1 (Sep Peak)",
+      "n_cells": 803,
+      "center": [
+        37.424,
+        39.175
+      ],
+      "bbox": {
+        "minLat": 35.8,
+        "maxLat": 39.4,
+        "minLon": 34.2,
+        "maxLon": 44.7
+      },
+      "total_fire_days_per_year": 6626.2,
+      "total_frp_mw_per_year": 126984.9,
+      "frp_per_fire_day_mw": 19.16,
+      "peak_month": 9,
+      "peak_month_name": "Sep",
+      "monthly_profile": [
+        199.69,
+        98.04,
+        59.1,
+        44.65,
+        110.41,
+        959.93,
+        849.35,
+        849.81,
+        1580.21,
+        1133.02,
+        662.86,
+        372.99
+      ],
+      "regime_id": "mixed_scrubland",
+      "regime_label": "Mixed Woodland & Scrubland Fire",
+      "regime_color": "#f97316",
+      "dominant_sensor_note": "Moderate-intensity brush and rangeland burning calibrated across the 2012\u20132020 sensor overlap",
+      "rank": 1
+    },
+    {
+      "cluster_id": "turkey-cluster-9",
+      "region": "Turkey",
+      "name": "Turkey Zone #9 (Sep Peak)",
+      "n_cells": 1483,
+      "center": [
+        38.989,
+        33.079
+      ],
+      "bbox": {
+        "minLat": 37.0,
+        "maxLat": 41.2,
+        "minLon": 26.7,
+        "maxLon": 38.5
+      },
+      "total_fire_days_per_year": 5123.4,
+      "total_frp_mw_per_year": 71778.7,
+      "frp_per_fire_day_mw": 14.01,
+      "peak_month": 9,
+      "peak_month_name": "Sep",
+      "monthly_profile": [
+        53.87,
+        130.44,
+        247.37,
+        198.28,
+        87.16,
+        117.85,
+        282.2,
+        898.6,
+        1254.69,
+        1149.08,
+        578.51,
+        119.63
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 2
+    },
+    {
+      "cluster_id": "egypt-cluster-3",
+      "region": "Egypt",
+      "name": "Egypt Zone #3 (Oct Peak)",
+      "n_cells": 532,
+      "center": [
+        29.489,
+        31.221
+      ],
+      "bbox": {
+        "minLat": 24.3,
+        "maxLat": 31.6,
+        "minLon": 28.6,
+        "maxLon": 33.5
+      },
+      "total_fire_days_per_year": 3966.2,
+      "total_frp_mw_per_year": 22788.9,
+      "frp_per_fire_day_mw": 5.75,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        200.78,
+        255.26,
+        277.58,
+        270.61,
+        323.32,
+        180.45,
+        128.74,
+        199.3,
+        682.05,
+        1007.78,
+        280.38,
+        157.18
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 3
+    },
+    {
+      "cluster_id": "syria-cluster-3",
+      "region": "Syria",
+      "name": "Syria Zone #3 (Jun Peak)",
+      "n_cells": 566,
+      "center": [
+        36.046,
+        38.653
+      ],
+      "bbox": {
+        "minLat": 34.3,
+        "maxLat": 37.4,
+        "minLon": 35.8,
+        "maxLon": 42.4
+      },
+      "total_fire_days_per_year": 2280.8,
+      "total_frp_mw_per_year": 40628.8,
+      "frp_per_fire_day_mw": 17.81,
+      "peak_month": 6,
+      "peak_month_name": "Jun",
+      "monthly_profile": [
+        70.27,
+        67.59,
+        58.87,
+        54.9,
+        125.8,
+        607.21,
+        501.81,
+        295.6,
+        333.16,
+        283.28,
+        148.07,
+        88.97
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 4
+    },
+    {
+      "cluster_id": "greece-cluster-9",
+      "region": "Greece",
+      "name": "Greece Zone #9 (Oct Peak)",
+      "n_cells": 404,
+      "center": [
+        40.129,
+        23.109
+      ],
+      "bbox": {
+        "minLat": 37.7,
+        "maxLat": 41.8,
+        "minLon": 21.0,
+        "maxLon": 26.7
+      },
+      "total_fire_days_per_year": 1676.0,
+      "total_frp_mw_per_year": 27049.2,
+      "frp_per_fire_day_mw": 16.14,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        69.54,
+        98.37,
+        153.42,
+        65.63,
+        37.64,
+        49.12,
+        131.58,
+        126.69,
+        198.16,
+        564.52,
+        214.65,
+        47.47
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 5
+    },
+    {
+      "cluster_id": "turkey-cluster-27",
+      "region": "Turkey",
+      "name": "Turkey Zone #27 (Oct Peak)",
+      "n_cells": 173,
+      "center": [
+        41.179,
+        27.158
+      ],
+      "bbox": {
+        "minLat": 40.1,
+        "maxLat": 41.9,
+        "minLon": 26.1,
+        "maxLon": 29.0
+      },
+      "total_fire_days_per_year": 627.8,
+      "total_frp_mw_per_year": 5797.9,
+      "frp_per_fire_day_mw": 9.24,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        5.65,
+        13.7,
+        34.37,
+        20.37,
+        14.0,
+        18.8,
+        40.09,
+        57.39,
+        162.52,
+        248.28,
+        55.18,
+        4.42
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 6
+    },
+    {
+      "cluster_id": "turkey-cluster-23",
+      "region": "Turkey",
+      "name": "Turkey Zone #23 (Oct Peak)",
+      "n_cells": 105,
+      "center": [
+        40.4,
+        28.88
+      ],
+      "bbox": {
+        "minLat": 39.8,
+        "maxLat": 41.2,
+        "minLon": 27.0,
+        "maxLon": 30.7
+      },
+      "total_fire_days_per_year": 427.3,
+      "total_frp_mw_per_year": 2922.0,
+      "frp_per_fire_day_mw": 6.84,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        6.26,
+        8.14,
+        22.49,
+        28.42,
+        23.26,
+        27.54,
+        37.48,
+        29.47,
+        64.81,
+        131.44,
+        42.5,
+        4.77
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 7
+    },
+    {
+      "cluster_id": "israel-cluster-1",
+      "region": "Israel",
+      "name": "Israel Zone #1 (May Peak)",
+      "n_cells": 114,
+      "center": [
+        32.282,
+        35.122
+      ],
+      "bbox": {
+        "minLat": 30.9,
+        "maxLat": 33.3,
+        "minLon": 34.3,
+        "maxLon": 35.9
+      },
+      "total_fire_days_per_year": 421.0,
+      "total_frp_mw_per_year": 5033.9,
+      "frp_per_fire_day_mw": 11.96,
+      "peak_month": 5,
+      "peak_month_name": "May",
+      "monthly_profile": [
+        10.58,
+        8.51,
+        14.44,
+        22.9,
+        80.08,
+        62.96,
+        53.12,
+        46.61,
+        56.08,
+        61.27,
+        35.6,
+        25.73
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 8
+    },
+    {
+      "cluster_id": "lebanon-cluster-1",
+      "region": "Lebanon",
+      "name": "Lebanon Zone #1 (Jul Peak)",
+      "n_cells": 81,
+      "center": [
+        33.862,
+        35.765
+      ],
+      "bbox": {
+        "minLat": 33.0,
+        "maxLat": 34.7,
+        "minLon": 35.1,
+        "maxLon": 36.5
+      },
+      "total_fire_days_per_year": 341.6,
+      "total_frp_mw_per_year": 3673.6,
+      "frp_per_fire_day_mw": 10.76,
+      "peak_month": 7,
+      "peak_month_name": "Jul",
+      "monthly_profile": [
+        5.88,
+        5.03,
+        9.09,
+        10.97,
+        15.29,
+        37.81,
+        73.6,
+        59.02,
+        58.56,
+        59.73,
+        28.49,
+        13.54
+      ],
+      "regime_id": "mixed_scrubland",
+      "regime_label": "Mixed Woodland & Scrubland Fire",
+      "regime_color": "#f97316",
+      "dominant_sensor_note": "Moderate-intensity brush and rangeland burning calibrated across the 2012\u20132020 sensor overlap",
+      "rank": 9
+    },
+    {
+      "cluster_id": "egypt-cluster-9",
+      "region": "Egypt",
+      "name": "Egypt Zone #9 (Jul Peak)",
+      "n_cells": 55,
+      "center": [
+        30.755,
+        26.794
+      ],
+      "bbox": {
+        "minLat": 30.2,
+        "maxLat": 31.2,
+        "minLon": 25.7,
+        "maxLon": 27.8
+      },
+      "total_fire_days_per_year": 341.1,
+      "total_frp_mw_per_year": 947.4,
+      "frp_per_fire_day_mw": 2.78,
+      "peak_month": 7,
+      "peak_month_name": "Jul",
+      "monthly_profile": [
+        19.77,
+        19.8,
+        23.12,
+        25.87,
+        34.41,
+        29.5,
+        40.18,
+        33.33,
+        35.28,
+        32.42,
+        27.58,
+        19.71
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 10
+    },
+    {
+      "cluster_id": "greece-cluster-5",
+      "region": "Greece",
+      "name": "Greece Zone #5 (Oct Peak)",
+      "n_cells": 116,
+      "center": [
+        38.032,
+        21.541
+      ],
+      "bbox": {
+        "minLat": 36.4,
+        "maxLat": 40.3,
+        "minLon": 20.2,
+        "maxLon": 22.8
+      },
+      "total_fire_days_per_year": 235.4,
+      "total_frp_mw_per_year": 14360.2,
+      "frp_per_fire_day_mw": 61.0,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        7.13,
+        11.02,
+        24.38,
+        14.74,
+        4.42,
+        5.77,
+        17.34,
+        41.59,
+        26.91,
+        54.15,
+        23.38,
+        3.95
+      ],
+      "regime_id": "forest_megafire",
+      "regime_label": "High-Intensity Forest Wildfire",
+      "regime_color": "#ef4444",
+      "dominant_sensor_note": "High radiative heat (FRP) detected by both MODIS & VIIRS; 0.1\u00b0 clustering prevents 7x pixel fragmentation",
+      "rank": 11
+    },
+    {
+      "cluster_id": "egypt-cluster-8",
+      "region": "Egypt",
+      "name": "Egypt Zone #8 (Jul Peak)",
+      "n_cells": 34,
+      "center": [
+        29.765,
+        28.332
+      ],
+      "bbox": {
+        "minLat": 29.5,
+        "maxLat": 30.1,
+        "minLon": 27.6,
+        "maxLon": 29.2
+      },
+      "total_fire_days_per_year": 202.3,
+      "total_frp_mw_per_year": 591.4,
+      "frp_per_fire_day_mw": 2.92,
+      "peak_month": 7,
+      "peak_month_name": "Jul",
+      "monthly_profile": [
+        8.41,
+        10.77,
+        13.97,
+        16.94,
+        15.74,
+        17.49,
+        24.99,
+        15.66,
+        23.97,
+        18.43,
+        18.55,
+        17.22
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 12
+    },
+    {
+      "cluster_id": "palestine-cluster-2",
+      "region": "Palestine",
+      "name": "Palestine Zone #2 (May Peak)",
+      "n_cells": 54,
+      "center": [
+        32.031,
+        35.219
+      ],
+      "bbox": {
+        "minLat": 31.4,
+        "maxLat": 32.6,
+        "minLon": 34.9,
+        "maxLon": 35.6
+      },
+      "total_fire_days_per_year": 180.8,
+      "total_frp_mw_per_year": 1241.3,
+      "frp_per_fire_day_mw": 6.87,
+      "peak_month": 5,
+      "peak_month_name": "May",
+      "monthly_profile": [
+        3.69,
+        4.41,
+        5.46,
+        12.57,
+        38.53,
+        33.06,
+        27.64,
+        23.34,
+        27.04,
+        24.56,
+        16.98,
+        8.04
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 13
+    },
+    {
+      "cluster_id": "egypt-cluster-6",
+      "region": "Egypt",
+      "name": "Egypt Zone #6 (Nov Peak)",
+      "n_cells": 18,
+      "center": [
+        27.894,
+        33.378
+      ],
+      "bbox": {
+        "minLat": 27.0,
+        "maxLat": 28.8,
+        "minLon": 32.8,
+        "maxLon": 33.9
+      },
+      "total_fire_days_per_year": 118.9,
+      "total_frp_mw_per_year": 335.5,
+      "frp_per_fire_day_mw": 2.82,
+      "peak_month": 11,
+      "peak_month_name": "Nov",
+      "monthly_profile": [
+        14.11,
+        6.48,
+        11.28,
+        12.39,
+        8.63,
+        7.63,
+        7.42,
+        7.68,
+        6.43,
+        9.67,
+        14.83,
+        12.33
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 14
+    },
+    {
+      "cluster_id": "jordan-cluster-3",
+      "region": "Jordan",
+      "name": "Jordan Zone #3 (Jun Peak)",
+      "n_cells": 50,
+      "center": [
+        32.154,
+        35.92
+      ],
+      "bbox": {
+        "minLat": 31.6,
+        "maxLat": 32.8,
+        "minLon": 35.5,
+        "maxLon": 36.6
+      },
+      "total_fire_days_per_year": 111.6,
+      "total_frp_mw_per_year": 587.7,
+      "frp_per_fire_day_mw": 5.27,
+      "peak_month": 6,
+      "peak_month_name": "Jun",
+      "monthly_profile": [
+        3.42,
+        3.5,
+        5.78,
+        7.48,
+        17.53,
+        19.8,
+        19.64,
+        14.98,
+        12.31,
+        13.3,
+        10.23,
+        7.23
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 15
+    },
+    {
+      "cluster_id": "cyprus-cluster-1",
+      "region": "Cyprus",
+      "name": "Cyprus Zone #1 (Oct Peak)",
+      "n_cells": 40,
+      "center": [
+        34.92,
+        33.055
+      ],
+      "bbox": {
+        "minLat": 34.6,
+        "maxLat": 35.2,
+        "minLon": 32.3,
+        "maxLon": 34.0
+      },
+      "total_fire_days_per_year": 97.7,
+      "total_frp_mw_per_year": 2297.4,
+      "frp_per_fire_day_mw": 23.52,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        1.64,
+        2.05,
+        3.63,
+        9.33,
+        8.95,
+        10.25,
+        11.39,
+        7.55,
+        9.81,
+        19.29,
+        9.57,
+        3.91
+      ],
+      "regime_id": "forest_megafire",
+      "regime_label": "High-Intensity Forest Wildfire",
+      "regime_color": "#ef4444",
+      "dominant_sensor_note": "High radiative heat (FRP) detected by both MODIS & VIIRS; 0.1\u00b0 clustering prevents 7x pixel fragmentation",
+      "rank": 16
+    },
+    {
+      "cluster_id": "syria-cluster-1",
+      "region": "Syria",
+      "name": "Syria Zone #1 (Jun Peak)",
+      "n_cells": 41,
+      "center": [
+        33.194,
+        36.16
+      ],
+      "bbox": {
+        "minLat": 32.5,
+        "maxLat": 33.8,
+        "minLon": 35.7,
+        "maxLon": 36.7
+      },
+      "total_fire_days_per_year": 91.5,
+      "total_frp_mw_per_year": 826.5,
+      "frp_per_fire_day_mw": 9.04,
+      "peak_month": 6,
+      "peak_month_name": "Jun",
+      "monthly_profile": [
+        2.66,
+        2.73,
+        4.41,
+        5.84,
+        15.82,
+        21.68,
+        14.18,
+        11.08,
+        8.94,
+        10.96,
+        6.5,
+        4.83
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 17
+    },
+    {
+      "cluster_id": "turkey-cluster-6",
+      "region": "Turkey",
+      "name": "Turkey Zone #6 (Oct Peak)",
+      "n_cells": 34,
+      "center": [
+        36.912,
+        31.115
+      ],
+      "bbox": {
+        "minLat": 36.4,
+        "maxLat": 37.4,
+        "minLon": 30.3,
+        "maxLon": 32.2
+      },
+      "total_fire_days_per_year": 87.8,
+      "total_frp_mw_per_year": 2285.9,
+      "frp_per_fire_day_mw": 26.04,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        1.39,
+        2.71,
+        5.18,
+        3.65,
+        5.67,
+        8.41,
+        9.55,
+        8.76,
+        10.02,
+        17.62,
+        11.44,
+        3.22
+      ],
+      "regime_id": "forest_megafire",
+      "regime_label": "High-Intensity Forest Wildfire",
+      "regime_color": "#ef4444",
+      "dominant_sensor_note": "High radiative heat (FRP) detected by both MODIS & VIIRS; 0.1\u00b0 clustering prevents 7x pixel fragmentation",
+      "rank": 18
+    },
+    {
+      "cluster_id": "turkey-cluster-20",
+      "region": "Turkey",
+      "name": "Turkey Zone #20 (Mar Peak)",
+      "n_cells": 17,
+      "center": [
+        39.932,
+        44.303
+      ],
+      "bbox": {
+        "minLat": 39.6,
+        "maxLat": 40.1,
+        "minLon": 43.8,
+        "maxLon": 44.8
+      },
+      "total_fire_days_per_year": 55.8,
+      "total_frp_mw_per_year": 635.9,
+      "frp_per_fire_day_mw": 11.4,
+      "peak_month": 3,
+      "peak_month_name": "Mar",
+      "monthly_profile": [
+        1.33,
+        7.0,
+        13.8,
+        3.76,
+        0.56,
+        0.38,
+        4.0,
+        4.53,
+        2.66,
+        10.68,
+        6.02,
+        1.01
+      ],
+      "regime_id": "mixed_scrubland",
+      "regime_label": "Mixed Woodland & Scrubland Fire",
+      "regime_color": "#f97316",
+      "dominant_sensor_note": "Moderate-intensity brush and rangeland burning calibrated across the 2012\u20132020 sensor overlap",
+      "rank": 19
+    },
+    {
+      "cluster_id": "syria-cluster-4",
+      "region": "Syria",
+      "name": "Syria Zone #4 (May Peak)",
+      "n_cells": 10,
+      "center": [
+        34.76,
+        37.91
+      ],
+      "bbox": {
+        "minLat": 34.5,
+        "maxLat": 35.0,
+        "minLon": 37.6,
+        "maxLon": 38.1
+      },
+      "total_fire_days_per_year": 47.0,
+      "total_frp_mw_per_year": 726.4,
+      "frp_per_fire_day_mw": 15.45,
+      "peak_month": 5,
+      "peak_month_name": "May",
+      "monthly_profile": [
+        1.27,
+        3.08,
+        3.21,
+        4.08,
+        7.54,
+        6.58,
+        5.23,
+        5.56,
+        4.53,
+        3.31,
+        1.19,
+        1.39
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 20
+    },
+    {
+      "cluster_id": "turkey-cluster-14",
+      "region": "Turkey",
+      "name": "Turkey Zone #14 (Aug Peak)",
+      "n_cells": 25,
+      "center": [
+        39.154,
+        42.434
+      ],
+      "bbox": {
+        "minLat": 38.8,
+        "maxLat": 39.5,
+        "minLon": 42.0,
+        "maxLon": 43.0
+      },
+      "total_fire_days_per_year": 45.0,
+      "total_frp_mw_per_year": 910.6,
+      "frp_per_fire_day_mw": 20.24,
+      "peak_month": 8,
+      "peak_month_name": "Aug",
+      "monthly_profile": [
+        0.04,
+        0.0,
+        0.09,
+        0.04,
+        0.07,
+        0.08,
+        1.29,
+        25.89,
+        11.73,
+        4.07,
+        1.19,
+        0.41
+      ],
+      "regime_id": "forest_megafire",
+      "regime_label": "High-Intensity Forest Wildfire",
+      "regime_color": "#ef4444",
+      "dominant_sensor_note": "High radiative heat (FRP) detected by both MODIS & VIIRS; 0.1\u00b0 clustering prevents 7x pixel fragmentation",
+      "rank": 21
+    },
+    {
+      "cluster_id": "egypt-cluster-1",
+      "region": "Egypt",
+      "name": "Egypt Zone #1 (May Peak)",
+      "n_cells": 21,
+      "center": [
+        22.488,
+        28.455
+      ],
+      "bbox": {
+        "minLat": 22.2,
+        "maxLat": 22.8,
+        "minLon": 28.0,
+        "maxLon": 28.9
+      },
+      "total_fire_days_per_year": 38.2,
+      "total_frp_mw_per_year": 1629.2,
+      "frp_per_fire_day_mw": 42.68,
+      "peak_month": 5,
+      "peak_month_name": "May",
+      "monthly_profile": [
+        1.09,
+        1.86,
+        2.93,
+        1.66,
+        7.74,
+        4.15,
+        2.88,
+        1.17,
+        1.92,
+        2.56,
+        6.0,
+        4.09
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 22
+    },
+    {
+      "cluster_id": "egypt-cluster-7",
+      "region": "Egypt",
+      "name": "Egypt Zone #7 (Sep Peak)",
+      "n_cells": 5,
+      "center": [
+        28.85,
+        33.19
+      ],
+      "bbox": {
+        "minLat": 28.6,
+        "maxLat": 29.1,
+        "minLon": 33.1,
+        "maxLon": 33.3
+      },
+      "total_fire_days_per_year": 31.4,
+      "total_frp_mw_per_year": 64.0,
+      "frp_per_fire_day_mw": 2.04,
+      "peak_month": 9,
+      "peak_month_name": "Sep",
+      "monthly_profile": [
+        2.38,
+        2.17,
+        2.65,
+        3.39,
+        1.57,
+        2.4,
+        1.52,
+        2.47,
+        5.07,
+        2.49,
+        2.38,
+        2.9
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 23
+    },
+    {
+      "cluster_id": "greece-cluster-1",
+      "region": "Greece",
+      "name": "Greece Zone #1 (Oct Peak)",
+      "n_cells": 18,
+      "center": [
+        35.211,
+        24.739
+      ],
+      "bbox": {
+        "minLat": 35.0,
+        "maxLat": 35.4,
+        "minLon": 24.2,
+        "maxLon": 25.3
+      },
+      "total_fire_days_per_year": 30.5,
+      "total_frp_mw_per_year": 649.2,
+      "frp_per_fire_day_mw": 21.3,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        2.03,
+        1.03,
+        1.37,
+        1.98,
+        0.37,
+        0.56,
+        3.96,
+        2.75,
+        3.67,
+        6.23,
+        4.86,
+        1.56
+      ],
+      "regime_id": "forest_megafire",
+      "regime_label": "High-Intensity Forest Wildfire",
+      "regime_color": "#ef4444",
+      "dominant_sensor_note": "High radiative heat (FRP) detected by both MODIS & VIIRS; 0.1\u00b0 clustering prevents 7x pixel fragmentation",
+      "rank": 24
+    },
+    {
+      "cluster_id": "turkey-cluster-33",
+      "region": "Turkey",
+      "name": "Turkey Zone #33 (Oct Peak)",
+      "n_cells": 9,
+      "center": [
+        41.628,
+        35.894
+      ],
+      "bbox": {
+        "minLat": 41.5,
+        "maxLat": 41.8,
+        "minLon": 35.6,
+        "maxLon": 36.1
+      },
+      "total_fire_days_per_year": 29.9,
+      "total_frp_mw_per_year": 176.3,
+      "frp_per_fire_day_mw": 5.9,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        0.86,
+        1.28,
+        1.04,
+        0.82,
+        0.13,
+        0.32,
+        0.88,
+        0.76,
+        2.65,
+        12.16,
+        7.37,
+        1.57
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 25
+    },
+    {
+      "cluster_id": "greece-cluster-11",
+      "region": "Greece",
+      "name": "Greece Zone #11 (Oct Peak)",
+      "n_cells": 6,
+      "center": [
+        39.2,
+        25.95
+      ],
+      "bbox": {
+        "minLat": 39.1,
+        "maxLat": 39.3,
+        "minLon": 25.8,
+        "maxLon": 26.1
+      },
+      "total_fire_days_per_year": 25.6,
+      "total_frp_mw_per_year": 292.4,
+      "frp_per_fire_day_mw": 11.44,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        0.26,
+        0.31,
+        0.67,
+        0.17,
+        0.0,
+        0.14,
+        0.19,
+        0.0,
+        1.51,
+        10.5,
+        10.31,
+        1.48
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 26
+    },
+    {
+      "cluster_id": "turkey-cluster-28",
+      "region": "Turkey",
+      "name": "Turkey Zone #28 (Sep Peak)",
+      "n_cells": 11,
+      "center": [
+        40.668,
+        36.568
+      ],
+      "bbox": {
+        "minLat": 40.5,
+        "maxLat": 40.8,
+        "minLon": 36.2,
+        "maxLon": 37.0
+      },
+      "total_fire_days_per_year": 25.3,
+      "total_frp_mw_per_year": 195.1,
+      "frp_per_fire_day_mw": 7.7,
+      "peak_month": 9,
+      "peak_month_name": "Sep",
+      "monthly_profile": [
+        0.51,
+        1.13,
+        1.36,
+        1.33,
+        0.13,
+        0.16,
+        0.96,
+        3.75,
+        7.1,
+        6.47,
+        1.92,
+        0.52
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 27
+    },
+    {
+      "cluster_id": "turkey-cluster-19",
+      "region": "Turkey",
+      "name": "Turkey Zone #19 (Sep Peak)",
+      "n_cells": 13,
+      "center": [
+        40.065,
+        40.042
+      ],
+      "bbox": {
+        "minLat": 39.6,
+        "maxLat": 40.5,
+        "minLon": 39.6,
+        "maxLon": 40.4
+      },
+      "total_fire_days_per_year": 24.4,
+      "total_frp_mw_per_year": 156.0,
+      "frp_per_fire_day_mw": 6.39,
+      "peak_month": 9,
+      "peak_month_name": "Sep",
+      "monthly_profile": [
+        0.08,
+        0.04,
+        0.43,
+        0.69,
+        0.51,
+        2.13,
+        3.03,
+        5.4,
+        7.67,
+        3.04,
+        1.19,
+        0.15
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 28
+    },
+    {
+      "cluster_id": "greece-cluster-10",
+      "region": "Greece",
+      "name": "Greece Zone #10 (Aug Peak)",
+      "n_cells": 14,
+      "center": [
+        38.036,
+        24.579
+      ],
+      "bbox": {
+        "minLat": 37.6,
+        "maxLat": 38.6,
+        "minLon": 24.1,
+        "maxLon": 25.2
+      },
+      "total_fire_days_per_year": 24.0,
+      "total_frp_mw_per_year": 2135.8,
+      "frp_per_fire_day_mw": 89.1,
+      "peak_month": 8,
+      "peak_month_name": "Aug",
+      "monthly_profile": [
+        1.46,
+        1.56,
+        1.75,
+        0.93,
+        0.65,
+        0.82,
+        2.39,
+        5.37,
+        2.64,
+        2.2,
+        2.53,
+        1.64
+      ],
+      "regime_id": "forest_megafire",
+      "regime_label": "High-Intensity Forest Wildfire",
+      "regime_color": "#ef4444",
+      "dominant_sensor_note": "High radiative heat (FRP) detected by both MODIS & VIIRS; 0.1\u00b0 clustering prevents 7x pixel fragmentation",
+      "rank": 29
+    },
+    {
+      "cluster_id": "greece-cluster-7",
+      "region": "Greece",
+      "name": "Greece Zone #7 (Aug Peak)",
+      "n_cells": 16,
+      "center": [
+        37.812,
+        22.788
+      ],
+      "bbox": {
+        "minLat": 37.5,
+        "maxLat": 38.1,
+        "minLon": 22.4,
+        "maxLon": 23.1
+      },
+      "total_fire_days_per_year": 20.6,
+      "total_frp_mw_per_year": 1416.5,
+      "frp_per_fire_day_mw": 68.6,
+      "peak_month": 8,
+      "peak_month_name": "Aug",
+      "monthly_profile": [
+        1.37,
+        0.47,
+        1.12,
+        1.7,
+        1.14,
+        1.93,
+        3.37,
+        3.99,
+        1.67,
+        1.3,
+        1.1,
+        1.34
+      ],
+      "regime_id": "forest_megafire",
+      "regime_label": "High-Intensity Forest Wildfire",
+      "regime_color": "#ef4444",
+      "dominant_sensor_note": "High radiative heat (FRP) detected by both MODIS & VIIRS; 0.1\u00b0 clustering prevents 7x pixel fragmentation",
+      "rank": 30
+    },
+    {
+      "cluster_id": "egypt-cluster-5",
+      "region": "Egypt",
+      "name": "Egypt Zone #5 (Oct Peak)",
+      "n_cells": 8,
+      "center": [
+        27.0,
+        27.887
+      ],
+      "bbox": {
+        "minLat": 26.8,
+        "maxLat": 27.3,
+        "minLon": 27.7,
+        "maxLon": 28.0
+      },
+      "total_fire_days_per_year": 20.5,
+      "total_frp_mw_per_year": 207.0,
+      "frp_per_fire_day_mw": 10.11,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        0.33,
+        0.56,
+        0.3,
+        0.82,
+        3.21,
+        2.0,
+        1.3,
+        1.56,
+        3.41,
+        3.87,
+        2.96,
+        0.12
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 31
+    },
+    {
+      "cluster_id": "greece-cluster-3",
+      "region": "Greece",
+      "name": "Greece Zone #3 (Mar Peak)",
+      "n_cells": 12,
+      "center": [
+        35.367,
+        23.767
+      ],
+      "bbox": {
+        "minLat": 35.2,
+        "maxLat": 35.5,
+        "minLon": 23.5,
+        "maxLon": 24.1
+      },
+      "total_fire_days_per_year": 20.2,
+      "total_frp_mw_per_year": 485.1,
+      "frp_per_fire_day_mw": 23.99,
+      "peak_month": 3,
+      "peak_month_name": "Mar",
+      "monthly_profile": [
+        1.92,
+        1.33,
+        2.6,
+        2.15,
+        0.21,
+        0.46,
+        1.2,
+        2.21,
+        1.86,
+        2.53,
+        2.28,
+        1.42
+      ],
+      "regime_id": "forest_megafire",
+      "regime_label": "High-Intensity Forest Wildfire",
+      "regime_color": "#ef4444",
+      "dominant_sensor_note": "High radiative heat (FRP) detected by both MODIS & VIIRS; 0.1\u00b0 clustering prevents 7x pixel fragmentation",
+      "rank": 32
+    },
+    {
+      "cluster_id": "turkey-cluster-21",
+      "region": "Turkey",
+      "name": "Turkey Zone #21 (Oct Peak)",
+      "n_cells": 7,
+      "center": [
+        39.793,
+        26.264
+      ],
+      "bbox": {
+        "minLat": 39.5,
+        "maxLat": 40.0,
+        "minLon": 26.1,
+        "maxLon": 26.5
+      },
+      "total_fire_days_per_year": 17.9,
+      "total_frp_mw_per_year": 165.9,
+      "frp_per_fire_day_mw": 9.24,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        0.85,
+        1.08,
+        1.19,
+        0.39,
+        0.52,
+        1.03,
+        1.3,
+        1.14,
+        2.39,
+        6.17,
+        1.78,
+        0.08
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 33
+    },
+    {
+      "cluster_id": "turkey-cluster-31",
+      "region": "Turkey",
+      "name": "Turkey Zone #31 (Oct Peak)",
+      "n_cells": 7,
+      "center": [
+        41.293,
+        36.693
+      ],
+      "bbox": {
+        "minLat": 41.2,
+        "maxLat": 41.4,
+        "minLon": 36.4,
+        "maxLon": 37.0
+      },
+      "total_fire_days_per_year": 17.3,
+      "total_frp_mw_per_year": 78.7,
+      "frp_per_fire_day_mw": 4.55,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        0.16,
+        1.16,
+        1.51,
+        0.89,
+        0.81,
+        0.78,
+        2.46,
+        1.55,
+        2.44,
+        3.25,
+        1.97,
+        0.25
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 34
+    },
+    {
+      "cluster_id": "turkey-cluster-3",
+      "region": "Turkey",
+      "name": "Turkey Zone #3 (Oct Peak)",
+      "n_cells": 6,
+      "center": [
+        36.433,
+        29.317
+      ],
+      "bbox": {
+        "minLat": 36.2,
+        "maxLat": 36.7,
+        "minLon": 29.2,
+        "maxLon": 29.4
+      },
+      "total_fire_days_per_year": 14.8,
+      "total_frp_mw_per_year": 181.0,
+      "frp_per_fire_day_mw": 12.26,
+      "peak_month": 10,
+      "peak_month_name": "Oct",
+      "monthly_profile": [
+        0.89,
+        1.48,
+        0.97,
+        1.71,
+        0.53,
+        0.59,
+        0.79,
+        1.39,
+        1.93,
+        2.25,
+        1.62,
+        0.61
+      ],
+      "regime_id": "agricultural_crop_burn",
+      "regime_label": "Agricultural / Crop-Residue Burn",
+      "regime_color": "#eab308",
+      "dominant_sensor_note": "Strongly captured by VIIRS 375m small-fire sensitivity (MODIS 1km misses ~60% of small field burns)",
+      "rank": 35
+    }
+  ]
+}

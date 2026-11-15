@@ -1,0 +1,2801 @@
+{
+  "schema": {
+    "grain": "one row per compared detection",
+    "gold_run_id": "gold_20261113T013051Z_6b529f",
+    "matching_rule_version": "match-1.1.0",
+    "rows": 645655,
+    "split_rule": {
+      "train": "year <= 2019",
+      "validation": "2019 < year <= 2021",
+      "test": "year > 2021"
+    },
+    "split_counts": {
+      "train": 521084,
+      "validation": 124571
+    },
+    "columns": {
+      "detection_id": "string - Silver detection_id (key)",
+      "instrument": "MODIS | VIIRS",
+      "satellite": "Terra | Aqua | S-NPP | NOAA-20 | NOAA-21",
+      "region": "country name",
+      "acquisition_timestamp": "UTC timestamp",
+      "year": "int",
+      "month": "int 1-12",
+      "local_solar_hour": "float, hours",
+      "daynight": "D | N",
+      "latitude": "deg",
+      "longitude": "deg",
+      "frp_mw": "MW",
+      "brightness_mir_k": "K (~4 um channel)",
+      "brightness_tir_k": "K (~11 um channel)",
+      "brightness_difference_k": "K, mir - tir",
+      "scan_km": "km",
+      "track_km": "km",
+      "pixel_area_km2": "km2",
+      "confidence_class": "low | nominal | high (sensor-specific meaning)",
+      "match_status": "matched | candidate_unassigned | modis_only | viirs_only (candidate target)",
+      "n_candidates": "int, candidate pairs for a MODIS detection (0 for VIIRS rows)",
+      "other_sensor_distance_m": "m, pair distance if matched, else nearest other-sensor detection in the time window",
+      "other_sensor_pass_evidence": "bool, the other sensor detected any fire nearby at that time",
+      "cell_fire_days_prior_12m": "float, fire-days in the same 0.1 deg cell over the previous 12 months (all sensors)",
+      "split": "train | validation | test",
+      "spatial_block": "string, 1 deg tile id"
+    },
+    "prediction_output_schema": {
+      "prediction_id": "string",
+      "input_record_id": "string",
+      "model_name": "string",
+      "model_version": "string",
+      "prediction_label": "string",
+      "prediction_score": "float",
+      "inference_timestamp": "timestamp (UTC)"
+    }
+  },
+  "global_summary": {
+    "gold_run_id": "gold_20261113T013051Z_6b529f",
+    "matching_rule_version": "match-1.1.0",
+    "spatial_mode": "footprint",
+    "temporal_threshold_seconds": 3600,
+    "candidate_pairs_count": 158247,
+    "total_compared_records": 612576,
+    "model_input_rows": 645655,
+    "regional_trends_rows": 437865,
+    "match_status_counts": {
+      "viirs_only": 482640,
+      "matched": 91987,
+      "modis_only": 30441,
+      "candidate_unassigned": 7508
+    },
+    "match_status_pct": {
+      "viirs_only": 78.79,
+      "matched": 15.02,
+      "modis_only": 4.97,
+      "candidate_unassigned": 1.23
+    },
+    "distance_m_stats": {
+      "mean": 665.6,
+      "median": 598.2,
+      "p25": 392.3,
+      "p75": 862.4,
+      "max": 3127.0
+    },
+    "spatial_threshold_m_stats": {
+      "mean": 1391.9,
+      "median": 1218.3,
+      "min": 968.8,
+      "max": 3151.5
+    },
+    "time_diff_minutes_stats": {
+      "mean": 25.1,
+      "median": 21.0,
+      "p25": 9.0,
+      "p75": 39.0
+    },
+    "matched_frp_comparison": {
+      "modis_mean_mw": 80.41,
+      "viirs_mean_mw": 17.87,
+      "modis_median_mw": 28.1,
+      "viirs_median_mw": 8.44,
+      "modis_total_gw": 7396.47,
+      "viirs_total_gw": 1643.48
+    }
+  },
+  "spatial_resolution_proof": {
+    "MODIS": {
+      "count": 71028,
+      "scan_km": {
+        "min": 1.0,
+        "median": 1.2,
+        "mean": 1.514,
+        "p95": 3.2,
+        "max": 4.8
+      },
+      "track_km": {
+        "min": 1.0,
+        "median": 1.1,
+        "mean": 1.182,
+        "p95": 1.7,
+        "max": 2.0
+      },
+      "pixel_area_km2": {
+        "min": 1.0,
+        "median": 1.32,
+        "mean": 1.95,
+        "p95": 5.44,
+        "max": 9.6
+      }
+    },
+    "VIIRS": {
+      "count": 574627,
+      "scan_km": {
+        "min": 0.32,
+        "median": 0.44,
+        "mean": 0.464,
+        "p95": 0.64,
+        "max": 0.8
+      },
+      "track_km": {
+        "min": 0.36,
+        "median": 0.46,
+        "mean": 0.493,
+        "p95": 0.72,
+        "max": 0.78
+      },
+      "pixel_area_km2": {
+        "min": 0.137,
+        "median": 0.205,
+        "mean": 0.235,
+        "p95": 0.461,
+        "max": 0.624
+      }
+    }
+  },
+  "audit_and_validation": {
+    "run_id": "gold_20261113T013051Z_6b529f",
+    "silver_detections": 2550671,
+    "analysis_detections": 1524167,
+    "calendar_days": 75609,
+    "grid_rows": 219409,
+    "reconciliation_passed": true,
+    "reconciliation_checks_passed": 10,
+    "reconciliation_checks_total": 10,
+    "validation_metrics": [
+      {
+        "region": "Cyprus",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.455,
+        "pred_over_actual": 0.922,
+        "r_monthly_frp": 0.699,
+        "pred_over_actual_frp": 1.075
+      },
+      {
+        "region": "Cyprus",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.224,
+        "pred_over_actual": 1.252,
+        "r_monthly_frp": 0.878,
+        "pred_over_actual_frp": 2.067
+      },
+      {
+        "region": "Egypt",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.934,
+        "pred_over_actual": 1.0,
+        "r_monthly_frp": 0.946,
+        "pred_over_actual_frp": 1.0
+      },
+      {
+        "region": "Egypt",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.614,
+        "pred_over_actual": 1.054,
+        "r_monthly_frp": 0.409,
+        "pred_over_actual_frp": 1.664
+      },
+      {
+        "region": "Greece",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.986,
+        "pred_over_actual": 1.0,
+        "r_monthly_frp": 0.95,
+        "pred_over_actual_frp": 1.0
+      },
+      {
+        "region": "Greece",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.934,
+        "pred_over_actual": 1.083,
+        "r_monthly_frp": 0.98,
+        "pred_over_actual_frp": 1.453
+      },
+      {
+        "region": "Israel",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.882,
+        "pred_over_actual": 0.978,
+        "r_monthly_frp": 0.88,
+        "pred_over_actual_frp": 0.977
+      },
+      {
+        "region": "Israel",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.717,
+        "pred_over_actual": 1.088,
+        "r_monthly_frp": 0.522,
+        "pred_over_actual_frp": 0.919
+      },
+      {
+        "region": "Jordan",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.404,
+        "pred_over_actual": 0.791,
+        "r_monthly_frp": 0.606,
+        "pred_over_actual_frp": 0.958
+      },
+      {
+        "region": "Jordan",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.449,
+        "pred_over_actual": 0.841,
+        "r_monthly_frp": 0.846,
+        "pred_over_actual_frp": 0.835
+      },
+      {
+        "region": "Lebanon",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.9,
+        "pred_over_actual": 0.819,
+        "r_monthly_frp": 0.829,
+        "pred_over_actual_frp": 0.923
+      },
+      {
+        "region": "Lebanon",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.932,
+        "pred_over_actual": 0.855,
+        "r_monthly_frp": 0.747,
+        "pred_over_actual_frp": 0.783
+      },
+      {
+        "region": "Palestine",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.865,
+        "pred_over_actual": 0.89,
+        "r_monthly_frp": 0.839,
+        "pred_over_actual_frp": 0.915
+      },
+      {
+        "region": "Palestine",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.74,
+        "pred_over_actual": 0.881,
+        "r_monthly_frp": 0.683,
+        "pred_over_actual_frp": 1.089
+      },
+      {
+        "region": "Syria",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.984,
+        "pred_over_actual": 1.0,
+        "r_monthly_frp": 0.96,
+        "pred_over_actual_frp": 1.0
+      },
+      {
+        "region": "Syria",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.939,
+        "pred_over_actual": 0.942,
+        "r_monthly_frp": 0.741,
+        "pred_over_actual_frp": 1.519
+      },
+      {
+        "region": "Turkey",
+        "period": "calibration",
+        "months": 107,
+        "r_monthly": 0.986,
+        "pred_over_actual": 1.0,
+        "r_monthly_frp": 0.989,
+        "pred_over_actual_frp": 1.0
+      },
+      {
+        "region": "Turkey",
+        "period": "holdout",
+        "months": 60,
+        "r_monthly": 0.957,
+        "pred_over_actual": 1.024,
+        "r_monthly_frp": 0.941,
+        "pred_over_actual_frp": 1.206
+      }
+    ]
+  },
+  "distance_histogram": [
+    {
+      "bin": "0-250m",
+      "count": 9800
+    },
+    {
+      "bin": "250-500m",
+      "count": 25156
+    },
+    {
+      "bin": "500-750m",
+      "count": 25625
+    },
+    {
+      "bin": "750-1000m",
+      "count": 16497
+    },
+    {
+      "bin": "1.0-1.25km",
+      "count": 7968
+    },
+    {
+      "bin": "1.25-1.5km",
+      "count": 3410
+    },
+    {
+      "bin": "1.5-2.0km",
+      "count": 2770
+    },
+    {
+      "bin": ">2.0km",
+      "count": 761
+    }
+  ],
+  "time_histogram": [
+    {
+      "bin": "0-10m",
+      "count": 25183
+    },
+    {
+      "bin": "10-20m",
+      "count": 19298
+    },
+    {
+      "bin": "20-30m",
+      "count": 13005
+    },
+    {
+      "bin": "30-40m",
+      "count": 12553
+    },
+    {
+      "bin": "40-50m",
+      "count": 12512
+    },
+    {
+      "bin": "50-60m",
+      "count": 9436
+    }
+  ],
+  "feature_profiles": {
+    "candidate_unassigned": {
+      "count": 7508,
+      "day_pct": 87.5,
+      "other_sensor_pass_pct": 0.0,
+      "frp_mw": 47.22,
+      "brightness_mir_k": 327.72,
+      "brightness_tir_k": 304.1,
+      "brightness_difference_k": 23.62,
+      "scan_km": 1.69,
+      "track_km": 1.24,
+      "pixel_area_km2": 2.3,
+      "n_candidates": 2.24,
+      "other_sensor_distance_m": 963.72,
+      "cell_fire_days_prior_12m": 17.88
+    },
+    "matched": {
+      "count": 125066,
+      "day_pct": 78.3,
+      "other_sensor_pass_pct": 100.0,
+      "frp_mw": 26.43,
+      "brightness_mir_k": 338.52,
+      "brightness_tir_k": 305.07,
+      "brightness_difference_k": 33.46,
+      "scan_km": 0.74,
+      "track_km": 0.67,
+      "pixel_area_km2": 0.69,
+      "n_candidates": 1.13,
+      "other_sensor_distance_m": 616.86,
+      "cell_fire_days_prior_12m": 16.85
+    },
+    "modis_only": {
+      "count": 30441,
+      "day_pct": 96.3,
+      "other_sensor_pass_pct": 97.4,
+      "frp_mw": 27.9,
+      "brightness_mir_k": 321.46,
+      "brightness_tir_k": 302.0,
+      "brightness_difference_k": 19.46,
+      "scan_km": 1.45,
+      "track_km": 1.16,
+      "pixel_area_km2": 1.84,
+      "n_candidates": 0.0,
+      "other_sensor_distance_m": 77537.67,
+      "cell_fire_days_prior_12m": 24.51
+    },
+    "viirs_only": {
+      "count": 482640,
+      "day_pct": 70.0,
+      "other_sensor_pass_pct": 68.9,
+      "frp_mw": 6.65,
+      "brightness_mir_k": 332.26,
+      "brightness_tir_k": 299.4,
+      "brightness_difference_k": 32.86,
+      "scan_km": 0.46,
+      "track_km": 0.5,
+      "pixel_area_km2": 0.24,
+      "n_candidates": 0.0,
+      "other_sensor_distance_m": 295252.42,
+      "cell_fire_days_prior_12m": 21.75
+    }
+  },
+  "regions": {
+    "Eastern Med (All)": {
+      "total_compared": 612576,
+      "matched": 91987,
+      "viirs_only": 482640,
+      "modis_only": 30441,
+      "candidate_unassigned": 7508,
+      "matched_pct": 15.02,
+      "viirs_only_pct": 78.79,
+      "modis_only_pct": 4.97,
+      "mean_distance_m": 665.6,
+      "mean_threshold_m": 1391.9,
+      "mean_time_diff_min": 25.1,
+      "modis_matched_frp_mean": 80.4,
+      "viirs_matched_frp_mean": 17.9,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 7813,
+          "viirs_only": 40295,
+          "modis_only": 2434,
+          "candidate_unassigned": 581
+        },
+        {
+          "year": 2013,
+          "matched": 9943,
+          "viirs_only": 58239,
+          "modis_only": 3809,
+          "candidate_unassigned": 946
+        },
+        {
+          "year": 2014,
+          "matched": 5342,
+          "viirs_only": 36374,
+          "modis_only": 2345,
+          "candidate_unassigned": 484
+        },
+        {
+          "year": 2015,
+          "matched": 13657,
+          "viirs_only": 66509,
+          "modis_only": 4412,
+          "candidate_unassigned": 1245
+        },
+        {
+          "year": 2016,
+          "matched": 11223,
+          "viirs_only": 59012,
+          "modis_only": 3598,
+          "candidate_unassigned": 971
+        },
+        {
+          "year": 2017,
+          "matched": 7031,
+          "viirs_only": 42492,
+          "modis_only": 2922,
+          "candidate_unassigned": 629
+        },
+        {
+          "year": 2018,
+          "matched": 4914,
+          "viirs_only": 33376,
+          "modis_only": 2181,
+          "candidate_unassigned": 461
+        },
+        {
+          "year": 2019,
+          "matched": 10383,
+          "viirs_only": 56737,
+          "modis_only": 3341,
+          "candidate_unassigned": 777
+        },
+        {
+          "year": 2020,
+          "matched": 8628,
+          "viirs_only": 51105,
+          "modis_only": 2789,
+          "candidate_unassigned": 695
+        },
+        {
+          "year": 2021,
+          "matched": 13053,
+          "viirs_only": 38501,
+          "modis_only": 2610,
+          "candidate_unassigned": 719
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 168733,
+          "fire_days": 106955,
+          "frp_sum_gw": 6913.28,
+          "compared_count": 71028,
+          "matched_count": 40587,
+          "unmatched_count": 30441
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 184117,
+          "fire_days": 117272,
+          "frp_sum_gw": 5992.06,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 409347,
+          "fire_days": 202459,
+          "frp_sum_gw": 3907.09,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 761970,
+          "fire_days": 363517,
+          "frp_sum_gw": 6638.69,
+          "compared_count": 574627,
+          "matched_count": 91987,
+          "unmatched_count": 482640
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "374acb67e6",
+          "date": "2021-07-29",
+          "region": "Turkey",
+          "lat": 36.8497,
+          "lon": 31.5612,
+          "distance_m": 865.1,
+          "spatial_threshold_m": 1500.2,
+          "time_diff_min": 59.0,
+          "modis_frp_mw": 4299.6,
+          "viirs_frp_mw": 12.7,
+          "n_candidates": 11
+        },
+        {
+          "comparison_id": "76c1f2b9ba",
+          "date": "2021-07-29",
+          "region": "Turkey",
+          "lat": 36.8497,
+          "lon": 31.5612,
+          "distance_m": 1139.5,
+          "spatial_threshold_m": 1500.2,
+          "time_diff_min": 59.0,
+          "modis_frp_mw": 4299.6,
+          "viirs_frp_mw": 36.6,
+          "n_candidates": 11
+        },
+        {
+          "comparison_id": "a9d33f8088",
+          "date": "2021-07-29",
+          "region": "Turkey",
+          "lat": 36.8497,
+          "lon": 31.5612,
+          "distance_m": 855.9,
+          "spatial_threshold_m": 1500.2,
+          "time_diff_min": 59.0,
+          "modis_frp_mw": 4299.6,
+          "viirs_frp_mw": 4.4,
+          "n_candidates": 11
+        },
+        {
+          "comparison_id": "a922eb1a15",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 585.9,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 51.3,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "9143a5bace",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 918.9,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 29.2,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "15692ebaf0",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 654.0,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 171.7,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "74ff35b006",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 825.5,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 51.3,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "571fcd810e",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 698.6,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 97.6,
+          "n_candidates": 23
+        }
+      ]
+    },
+    "Cyprus": {
+      "total_compared": 2535,
+      "matched": 480,
+      "viirs_only": 1896,
+      "modis_only": 119,
+      "candidate_unassigned": 40,
+      "matched_pct": 18.93,
+      "viirs_only_pct": 74.79,
+      "modis_only_pct": 4.69,
+      "mean_distance_m": 610.7,
+      "mean_threshold_m": 1401.5,
+      "mean_time_diff_min": 26.0,
+      "modis_matched_frp_mean": 101.7,
+      "viirs_matched_frp_mean": 26.9,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 62,
+          "viirs_only": 169,
+          "modis_only": 10,
+          "candidate_unassigned": 5
+        },
+        {
+          "year": 2013,
+          "matched": 106,
+          "viirs_only": 303,
+          "modis_only": 22,
+          "candidate_unassigned": 7
+        },
+        {
+          "year": 2014,
+          "matched": 18,
+          "viirs_only": 211,
+          "modis_only": 14,
+          "candidate_unassigned": 2
+        },
+        {
+          "year": 2015,
+          "matched": 18,
+          "viirs_only": 229,
+          "modis_only": 17,
+          "candidate_unassigned": 6
+        },
+        {
+          "year": 2016,
+          "matched": 46,
+          "viirs_only": 272,
+          "modis_only": 12,
+          "candidate_unassigned": 3
+        },
+        {
+          "year": 2017,
+          "matched": 11,
+          "viirs_only": 131,
+          "modis_only": 3,
+          "candidate_unassigned": 1
+        },
+        {
+          "year": 2018,
+          "matched": 34,
+          "viirs_only": 127,
+          "modis_only": 6,
+          "candidate_unassigned": 2
+        },
+        {
+          "year": 2019,
+          "matched": 21,
+          "viirs_only": 159,
+          "modis_only": 4,
+          "candidate_unassigned": 1
+        },
+        {
+          "year": 2020,
+          "matched": 88,
+          "viirs_only": 119,
+          "modis_only": 9,
+          "candidate_unassigned": 6
+        },
+        {
+          "year": 2021,
+          "matched": 76,
+          "viirs_only": 176,
+          "modis_only": 22,
+          "candidate_unassigned": 7
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 778,
+          "fire_days": 439,
+          "frp_sum_gw": 53.44,
+          "compared_count": 306,
+          "matched_count": 187,
+          "unmatched_count": 119
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 579,
+          "fire_days": 351,
+          "frp_sum_gw": 29.09,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 1991,
+          "fire_days": 785,
+          "frp_sum_gw": 20.83,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 3316,
+          "fire_days": 1421,
+          "frp_sum_gw": 38.65,
+          "compared_count": 2376,
+          "matched_count": 480,
+          "unmatched_count": 1896
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "604014d1c9",
+          "date": "2021-09-19",
+          "region": "Cyprus",
+          "lat": 34.9221,
+          "lon": 32.497,
+          "distance_m": 552.5,
+          "spatial_threshold_m": 1023.4,
+          "time_diff_min": 8.0,
+          "modis_frp_mw": 1112.7,
+          "viirs_frp_mw": 20.7,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "21abaa48ba",
+          "date": "2021-09-19",
+          "region": "Cyprus",
+          "lat": 34.9221,
+          "lon": 32.497,
+          "distance_m": 237.6,
+          "spatial_threshold_m": 1023.4,
+          "time_diff_min": 8.0,
+          "modis_frp_mw": 1112.7,
+          "viirs_frp_mw": 194.6,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "e079f8aaac",
+          "date": "2013-06-19",
+          "region": "Cyprus",
+          "lat": 34.8046,
+          "lon": 33.3505,
+          "distance_m": 1021.1,
+          "spatial_threshold_m": 2016.7,
+          "time_diff_min": 18.0,
+          "modis_frp_mw": 829.8,
+          "viirs_frp_mw": 174.5,
+          "n_candidates": 24
+        },
+        {
+          "comparison_id": "65ab70ed8e",
+          "date": "2013-06-19",
+          "region": "Cyprus",
+          "lat": 34.8046,
+          "lon": 33.3505,
+          "distance_m": 839.7,
+          "spatial_threshold_m": 2016.7,
+          "time_diff_min": 18.0,
+          "modis_frp_mw": 829.8,
+          "viirs_frp_mw": 26.6,
+          "n_candidates": 24
+        },
+        {
+          "comparison_id": "5620d6da4d",
+          "date": "2013-06-19",
+          "region": "Cyprus",
+          "lat": 34.8046,
+          "lon": 33.3505,
+          "distance_m": 580.7,
+          "spatial_threshold_m": 2016.7,
+          "time_diff_min": 18.0,
+          "modis_frp_mw": 829.8,
+          "viirs_frp_mw": 174.5,
+          "n_candidates": 24
+        },
+        {
+          "comparison_id": "be343414de",
+          "date": "2013-06-19",
+          "region": "Cyprus",
+          "lat": 34.8046,
+          "lon": 33.3505,
+          "distance_m": 712.8,
+          "spatial_threshold_m": 2016.7,
+          "time_diff_min": 18.0,
+          "modis_frp_mw": 829.8,
+          "viirs_frp_mw": 8.2,
+          "n_candidates": 24
+        },
+        {
+          "comparison_id": "6009655b56",
+          "date": "2013-06-19",
+          "region": "Cyprus",
+          "lat": 34.8046,
+          "lon": 33.3505,
+          "distance_m": 836.4,
+          "spatial_threshold_m": 2016.7,
+          "time_diff_min": 18.0,
+          "modis_frp_mw": 829.8,
+          "viirs_frp_mw": 53.4,
+          "n_candidates": 24
+        },
+        {
+          "comparison_id": "e708368445",
+          "date": "2013-06-19",
+          "region": "Cyprus",
+          "lat": 34.8046,
+          "lon": 33.3505,
+          "distance_m": 204.9,
+          "spatial_threshold_m": 2016.7,
+          "time_diff_min": 18.0,
+          "modis_frp_mw": 829.8,
+          "viirs_frp_mw": 41.3,
+          "n_candidates": 24
+        }
+      ]
+    },
+    "Egypt": {
+      "total_compared": 75265,
+      "matched": 2131,
+      "viirs_only": 70856,
+      "modis_only": 2096,
+      "candidate_unassigned": 182,
+      "matched_pct": 2.83,
+      "viirs_only_pct": 94.14,
+      "modis_only_pct": 2.78,
+      "mean_distance_m": 598.0,
+      "mean_threshold_m": 1226.5,
+      "mean_time_diff_min": 20.9,
+      "modis_matched_frp_mean": 33.7,
+      "viirs_matched_frp_mean": 10.9,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 195,
+          "viirs_only": 7002,
+          "modis_only": 247,
+          "candidate_unassigned": 22
+        },
+        {
+          "year": 2013,
+          "matched": 303,
+          "viirs_only": 8680,
+          "modis_only": 401,
+          "candidate_unassigned": 33
+        },
+        {
+          "year": 2014,
+          "matched": 314,
+          "viirs_only": 8660,
+          "modis_only": 316,
+          "candidate_unassigned": 21
+        },
+        {
+          "year": 2015,
+          "matched": 201,
+          "viirs_only": 7500,
+          "modis_only": 195,
+          "candidate_unassigned": 13
+        },
+        {
+          "year": 2016,
+          "matched": 362,
+          "viirs_only": 8917,
+          "modis_only": 298,
+          "candidate_unassigned": 32
+        },
+        {
+          "year": 2017,
+          "matched": 186,
+          "viirs_only": 7170,
+          "modis_only": 223,
+          "candidate_unassigned": 16
+        },
+        {
+          "year": 2018,
+          "matched": 142,
+          "viirs_only": 4968,
+          "modis_only": 65,
+          "candidate_unassigned": 9
+        },
+        {
+          "year": 2019,
+          "matched": 137,
+          "viirs_only": 5435,
+          "modis_only": 123,
+          "candidate_unassigned": 14
+        },
+        {
+          "year": 2020,
+          "matched": 151,
+          "viirs_only": 5881,
+          "modis_only": 119,
+          "candidate_unassigned": 17
+        },
+        {
+          "year": 2021,
+          "matched": 140,
+          "viirs_only": 6643,
+          "modis_only": 109,
+          "candidate_unassigned": 5
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 8363,
+          "fire_days": 6646,
+          "frp_sum_gw": 154.65,
+          "compared_count": 3443,
+          "matched_count": 1347,
+          "unmatched_count": 2096
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 13058,
+          "fire_days": 10373,
+          "frp_sum_gw": 287.56,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 54722,
+          "fire_days": 37663,
+          "frp_sum_gw": 297.32,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 103738,
+          "fire_days": 67086,
+          "frp_sum_gw": 533.58,
+          "compared_count": 72985,
+          "matched_count": 2129,
+          "unmatched_count": 70856
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "fa151ce51d",
+          "date": "2018-05-02",
+          "region": "Egypt",
+          "lat": 24.4793,
+          "lon": 32.9275,
+          "distance_m": 805.5,
+          "spatial_threshold_m": 1185.7,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2108.9,
+          "viirs_frp_mw": 501.2,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "d09eee5b5c",
+          "date": "2018-05-02",
+          "region": "Egypt",
+          "lat": 24.4793,
+          "lon": 32.9275,
+          "distance_m": 862.7,
+          "spatial_threshold_m": 1185.7,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2108.9,
+          "viirs_frp_mw": 501.2,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "279846f5aa",
+          "date": "2018-05-02",
+          "region": "Egypt",
+          "lat": 24.4793,
+          "lon": 32.9275,
+          "distance_m": 414.9,
+          "spatial_threshold_m": 1185.7,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2108.9,
+          "viirs_frp_mw": 49.3,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "7457efd3fb",
+          "date": "2018-05-02",
+          "region": "Egypt",
+          "lat": 24.4793,
+          "lon": 32.9275,
+          "distance_m": 789.1,
+          "spatial_threshold_m": 1185.7,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2108.9,
+          "viirs_frp_mw": 49.3,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "db86d7d3de",
+          "date": "2018-05-02",
+          "region": "Egypt",
+          "lat": 24.4793,
+          "lon": 32.9275,
+          "distance_m": 290.5,
+          "spatial_threshold_m": 1185.7,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2108.9,
+          "viirs_frp_mw": 501.2,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "69414080db",
+          "date": "2020-06-28",
+          "region": "Egypt",
+          "lat": 22.3387,
+          "lon": 28.1803,
+          "distance_m": 600.7,
+          "spatial_threshold_m": 1877.8,
+          "time_diff_min": 6.0,
+          "modis_frp_mw": 982.8,
+          "viirs_frp_mw": 95.1,
+          "n_candidates": 6
+        },
+        {
+          "comparison_id": "d105656ada",
+          "date": "2020-06-28",
+          "region": "Egypt",
+          "lat": 22.3387,
+          "lon": 28.1803,
+          "distance_m": 953.2,
+          "spatial_threshold_m": 1877.8,
+          "time_diff_min": 6.0,
+          "modis_frp_mw": 982.8,
+          "viirs_frp_mw": 230.8,
+          "n_candidates": 6
+        },
+        {
+          "comparison_id": "e3f403213b",
+          "date": "2020-06-28",
+          "region": "Egypt",
+          "lat": 22.3387,
+          "lon": 28.1803,
+          "distance_m": 979.5,
+          "spatial_threshold_m": 1877.8,
+          "time_diff_min": 6.0,
+          "modis_frp_mw": 982.8,
+          "viirs_frp_mw": 230.8,
+          "n_candidates": 6
+        }
+      ]
+    },
+    "Greece": {
+      "total_compared": 58170,
+      "matched": 14062,
+      "viirs_only": 39654,
+      "modis_only": 3494,
+      "candidate_unassigned": 960,
+      "matched_pct": 24.17,
+      "viirs_only_pct": 68.17,
+      "modis_only_pct": 6.01,
+      "mean_distance_m": 670.6,
+      "mean_threshold_m": 1447.7,
+      "mean_time_diff_min": 26.4,
+      "modis_matched_frp_mean": 166.6,
+      "viirs_matched_frp_mean": 26.7,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 2258,
+          "viirs_only": 5625,
+          "modis_only": 415,
+          "candidate_unassigned": 136
+        },
+        {
+          "year": 2013,
+          "matched": 1167,
+          "viirs_only": 4767,
+          "modis_only": 436,
+          "candidate_unassigned": 109
+        },
+        {
+          "year": 2014,
+          "matched": 850,
+          "viirs_only": 3663,
+          "modis_only": 337,
+          "candidate_unassigned": 94
+        },
+        {
+          "year": 2015,
+          "matched": 875,
+          "viirs_only": 3762,
+          "modis_only": 367,
+          "candidate_unassigned": 86
+        },
+        {
+          "year": 2016,
+          "matched": 1660,
+          "viirs_only": 4571,
+          "modis_only": 340,
+          "candidate_unassigned": 117
+        },
+        {
+          "year": 2017,
+          "matched": 1073,
+          "viirs_only": 3655,
+          "modis_only": 369,
+          "candidate_unassigned": 89
+        },
+        {
+          "year": 2018,
+          "matched": 578,
+          "viirs_only": 2245,
+          "modis_only": 218,
+          "candidate_unassigned": 44
+        },
+        {
+          "year": 2019,
+          "matched": 725,
+          "viirs_only": 3028,
+          "modis_only": 292,
+          "candidate_unassigned": 67
+        },
+        {
+          "year": 2020,
+          "matched": 721,
+          "viirs_only": 2911,
+          "modis_only": 325,
+          "candidate_unassigned": 68
+        },
+        {
+          "year": 2021,
+          "matched": 4155,
+          "viirs_only": 5427,
+          "modis_only": 395,
+          "candidate_unassigned": 150
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 24482,
+          "fire_days": 13210,
+          "frp_sum_gw": 1888.57,
+          "compared_count": 8499,
+          "matched_count": 5005,
+          "unmatched_count": 3494
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 21143,
+          "fire_days": 11265,
+          "frp_sum_gw": 1299.17,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 42389,
+          "fire_days": 14010,
+          "frp_sum_gw": 802.39,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 75145,
+          "fire_days": 28242,
+          "frp_sum_gw": 1083.42,
+          "compared_count": 53697,
+          "matched_count": 14043,
+          "unmatched_count": 39654
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "15692ebaf0",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 654.0,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 171.7,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "571fcd810e",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 698.6,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 97.6,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "bb15280076",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 1113.5,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 51.3,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "74ff35b006",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 825.5,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 51.3,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "168348b0bc",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 369.6,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 171.7,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "9143a5bace",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 918.9,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 29.2,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "a922eb1a15",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 585.9,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 51.3,
+          "n_candidates": 23
+        },
+        {
+          "comparison_id": "93ce6499d2",
+          "date": "2021-08-06",
+          "region": "Greece",
+          "lat": 37.6881,
+          "lon": 21.7399,
+          "distance_m": 296.4,
+          "spatial_threshold_m": 1569.2,
+          "time_diff_min": 40.0,
+          "modis_frp_mw": 3982.6,
+          "viirs_frp_mw": 171.7,
+          "n_candidates": 23
+        }
+      ]
+    },
+    "Israel": {
+      "total_compared": 8203,
+      "matched": 1130,
+      "viirs_only": 6762,
+      "modis_only": 216,
+      "candidate_unassigned": 95,
+      "matched_pct": 13.78,
+      "viirs_only_pct": 82.43,
+      "modis_only_pct": 2.63,
+      "mean_distance_m": 657.1,
+      "mean_threshold_m": 1395.7,
+      "mean_time_diff_min": 24.8,
+      "modis_matched_frp_mean": 61.9,
+      "viirs_matched_frp_mean": 19.1,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 44,
+          "viirs_only": 581,
+          "modis_only": 14,
+          "candidate_unassigned": 10
+        },
+        {
+          "year": 2013,
+          "matched": 160,
+          "viirs_only": 969,
+          "modis_only": 24,
+          "candidate_unassigned": 9
+        },
+        {
+          "year": 2014,
+          "matched": 83,
+          "viirs_only": 552,
+          "modis_only": 9,
+          "candidate_unassigned": 6
+        },
+        {
+          "year": 2015,
+          "matched": 114,
+          "viirs_only": 652,
+          "modis_only": 22,
+          "candidate_unassigned": 9
+        },
+        {
+          "year": 2016,
+          "matched": 153,
+          "viirs_only": 688,
+          "modis_only": 38,
+          "candidate_unassigned": 10
+        },
+        {
+          "year": 2017,
+          "matched": 64,
+          "viirs_only": 602,
+          "modis_only": 17,
+          "candidate_unassigned": 9
+        },
+        {
+          "year": 2018,
+          "matched": 61,
+          "viirs_only": 574,
+          "modis_only": 22,
+          "candidate_unassigned": 8
+        },
+        {
+          "year": 2019,
+          "matched": 146,
+          "viirs_only": 660,
+          "modis_only": 23,
+          "candidate_unassigned": 14
+        },
+        {
+          "year": 2020,
+          "matched": 139,
+          "viirs_only": 586,
+          "modis_only": 11,
+          "candidate_unassigned": 7
+        },
+        {
+          "year": 2021,
+          "matched": 166,
+          "viirs_only": 898,
+          "modis_only": 36,
+          "candidate_unassigned": 13
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 1897,
+          "fire_days": 1253,
+          "frp_sum_gw": 75.62,
+          "compared_count": 692,
+          "matched_count": 476,
+          "unmatched_count": 216
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 1886,
+          "fire_days": 1316,
+          "frp_sum_gw": 48.98,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 6685,
+          "fire_days": 3742,
+          "frp_sum_gw": 49.96,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 11243,
+          "fire_days": 6141,
+          "frp_sum_gw": 81.75,
+          "compared_count": 7930,
+          "matched_count": 1168,
+          "unmatched_count": 6762
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "bff4e29ce2",
+          "date": "2019-07-17",
+          "region": "Israel",
+          "lat": 31.6576,
+          "lon": 35.0111,
+          "distance_m": 491.5,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 456.3,
+          "viirs_frp_mw": 43.1,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "d099505217",
+          "date": "2019-07-17",
+          "region": "Israel",
+          "lat": 31.6576,
+          "lon": 35.0111,
+          "distance_m": 807.1,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 456.3,
+          "viirs_frp_mw": 43.1,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "d30d993f72",
+          "date": "2019-07-17",
+          "region": "Israel",
+          "lat": 31.6576,
+          "lon": 35.0111,
+          "distance_m": 316.5,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 456.3,
+          "viirs_frp_mw": 43.1,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "8de6f2ce04",
+          "date": "2019-07-17",
+          "region": "Israel",
+          "lat": 31.6576,
+          "lon": 35.0111,
+          "distance_m": 652.6,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 456.3,
+          "viirs_frp_mw": 30.5,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "bb0ddca21d",
+          "date": "2019-07-17",
+          "region": "Israel",
+          "lat": 31.6576,
+          "lon": 35.0111,
+          "distance_m": 894.3,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 456.3,
+          "viirs_frp_mw": 43.1,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "b687b99ce4",
+          "date": "2019-07-17",
+          "region": "Israel",
+          "lat": 31.6576,
+          "lon": 35.0111,
+          "distance_m": 980.1,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 456.3,
+          "viirs_frp_mw": 30.5,
+          "n_candidates": 8
+        },
+        {
+          "comparison_id": "9d18913335",
+          "date": "2019-05-30",
+          "region": "Israel",
+          "lat": 32.4287,
+          "lon": 35.4358,
+          "distance_m": 147.6,
+          "spatial_threshold_m": 1467.3,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 423.2,
+          "viirs_frp_mw": 86.0,
+          "n_candidates": 9
+        },
+        {
+          "comparison_id": "f0f0dfef02",
+          "date": "2019-05-30",
+          "region": "Israel",
+          "lat": 32.4287,
+          "lon": 35.4358,
+          "distance_m": 488.5,
+          "spatial_threshold_m": 1467.3,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 423.2,
+          "viirs_frp_mw": 86.0,
+          "n_candidates": 9
+        }
+      ]
+    },
+    "Jordan": {
+      "total_compared": 3795,
+      "matched": 156,
+      "viirs_only": 3510,
+      "modis_only": 117,
+      "candidate_unassigned": 12,
+      "matched_pct": 4.11,
+      "viirs_only_pct": 92.49,
+      "modis_only_pct": 3.08,
+      "mean_distance_m": 648.2,
+      "mean_threshold_m": 1393.5,
+      "mean_time_diff_min": 27.1,
+      "modis_matched_frp_mean": 52.5,
+      "viirs_matched_frp_mean": 13.3,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 4,
+          "viirs_only": 280,
+          "modis_only": 1,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2013,
+          "matched": 5,
+          "viirs_only": 320,
+          "modis_only": 1,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2014,
+          "matched": 2,
+          "viirs_only": 271,
+          "modis_only": 11,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2015,
+          "matched": 58,
+          "viirs_only": 398,
+          "modis_only": 19,
+          "candidate_unassigned": 4
+        },
+        {
+          "year": 2016,
+          "matched": 6,
+          "viirs_only": 342,
+          "modis_only": 10,
+          "candidate_unassigned": 2
+        },
+        {
+          "year": 2017,
+          "matched": 7,
+          "viirs_only": 283,
+          "modis_only": 19,
+          "candidate_unassigned": 1
+        },
+        {
+          "year": 2018,
+          "matched": 4,
+          "viirs_only": 236,
+          "modis_only": 18,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2019,
+          "matched": 19,
+          "viirs_only": 417,
+          "modis_only": 18,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2020,
+          "matched": 38,
+          "viirs_only": 530,
+          "modis_only": 9,
+          "candidate_unassigned": 2
+        },
+        {
+          "year": 2021,
+          "matched": 13,
+          "viirs_only": 433,
+          "modis_only": 11,
+          "candidate_unassigned": 3
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 342,
+          "fire_days": 279,
+          "frp_sum_gw": 8.1,
+          "compared_count": 194,
+          "matched_count": 77,
+          "unmatched_count": 117
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 454,
+          "fire_days": 384,
+          "frp_sum_gw": 7.43,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 3506,
+          "fire_days": 2512,
+          "frp_sum_gw": 15.33,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 5245,
+          "fire_days": 3780,
+          "frp_sum_gw": 21.41,
+          "compared_count": 3631,
+          "matched_count": 121,
+          "unmatched_count": 3510
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "3c65ae7c14",
+          "date": "2015-06-09",
+          "region": "Jordan",
+          "lat": 32.6852,
+          "lon": 35.6549,
+          "distance_m": 745.9,
+          "spatial_threshold_m": 2468.4,
+          "time_diff_min": 14.0,
+          "modis_frp_mw": 377.3,
+          "viirs_frp_mw": 27.8,
+          "n_candidates": 18
+        },
+        {
+          "comparison_id": "62aa341b88",
+          "date": "2015-06-09",
+          "region": "Jordan",
+          "lat": 32.6852,
+          "lon": 35.6549,
+          "distance_m": 553.8,
+          "spatial_threshold_m": 2468.4,
+          "time_diff_min": 14.0,
+          "modis_frp_mw": 377.3,
+          "viirs_frp_mw": 6.8,
+          "n_candidates": 18
+        },
+        {
+          "comparison_id": "1f1543abf2",
+          "date": "2015-06-09",
+          "region": "Jordan",
+          "lat": 32.6852,
+          "lon": 35.6549,
+          "distance_m": 563.5,
+          "spatial_threshold_m": 2468.4,
+          "time_diff_min": 14.0,
+          "modis_frp_mw": 377.3,
+          "viirs_frp_mw": 6.8,
+          "n_candidates": 18
+        },
+        {
+          "comparison_id": "accc911f1a",
+          "date": "2015-06-09",
+          "region": "Jordan",
+          "lat": 32.6852,
+          "lon": 35.6549,
+          "distance_m": 1146.9,
+          "spatial_threshold_m": 2468.4,
+          "time_diff_min": 14.0,
+          "modis_frp_mw": 377.3,
+          "viirs_frp_mw": 12.5,
+          "n_candidates": 18
+        },
+        {
+          "comparison_id": "187c987091",
+          "date": "2015-06-09",
+          "region": "Jordan",
+          "lat": 32.6852,
+          "lon": 35.6549,
+          "distance_m": 714.6,
+          "spatial_threshold_m": 2468.4,
+          "time_diff_min": 14.0,
+          "modis_frp_mw": 377.3,
+          "viirs_frp_mw": 4.4,
+          "n_candidates": 18
+        },
+        {
+          "comparison_id": "41585f00ae",
+          "date": "2021-05-31",
+          "region": "Jordan",
+          "lat": 32.4501,
+          "lon": 35.564,
+          "distance_m": 783.9,
+          "spatial_threshold_m": 2623.0,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 221.2,
+          "viirs_frp_mw": 4.5,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "3ebb2f10cd",
+          "date": "2021-05-31",
+          "region": "Jordan",
+          "lat": 32.4501,
+          "lon": 35.564,
+          "distance_m": 544.2,
+          "spatial_threshold_m": 2623.0,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 221.2,
+          "viirs_frp_mw": 4.5,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "82dba1cf97",
+          "date": "2021-05-31",
+          "region": "Jordan",
+          "lat": 32.4501,
+          "lon": 35.564,
+          "distance_m": 227.2,
+          "spatial_threshold_m": 2623.0,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 221.2,
+          "viirs_frp_mw": 4.5,
+          "n_candidates": 14
+        }
+      ]
+    },
+    "Lebanon": {
+      "total_compared": 5749,
+      "matched": 594,
+      "viirs_only": 4934,
+      "modis_only": 171,
+      "candidate_unassigned": 50,
+      "matched_pct": 10.33,
+      "viirs_only_pct": 85.82,
+      "modis_only_pct": 2.97,
+      "mean_distance_m": 645.1,
+      "mean_threshold_m": 1328.2,
+      "mean_time_diff_min": 26.2,
+      "modis_matched_frp_mean": 50.4,
+      "viirs_matched_frp_mean": 14.6,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 40,
+          "viirs_only": 384,
+          "modis_only": 9,
+          "candidate_unassigned": 2
+        },
+        {
+          "year": 2013,
+          "matched": 80,
+          "viirs_only": 683,
+          "modis_only": 41,
+          "candidate_unassigned": 8
+        },
+        {
+          "year": 2014,
+          "matched": 24,
+          "viirs_only": 377,
+          "modis_only": 7,
+          "candidate_unassigned": 1
+        },
+        {
+          "year": 2015,
+          "matched": 38,
+          "viirs_only": 435,
+          "modis_only": 13,
+          "candidate_unassigned": 3
+        },
+        {
+          "year": 2016,
+          "matched": 82,
+          "viirs_only": 593,
+          "modis_only": 22,
+          "candidate_unassigned": 7
+        },
+        {
+          "year": 2017,
+          "matched": 37,
+          "viirs_only": 341,
+          "modis_only": 6,
+          "candidate_unassigned": 3
+        },
+        {
+          "year": 2018,
+          "matched": 26,
+          "viirs_only": 282,
+          "modis_only": 13,
+          "candidate_unassigned": 4
+        },
+        {
+          "year": 2019,
+          "matched": 63,
+          "viirs_only": 488,
+          "modis_only": 11,
+          "candidate_unassigned": 7
+        },
+        {
+          "year": 2020,
+          "matched": 107,
+          "viirs_only": 566,
+          "modis_only": 20,
+          "candidate_unassigned": 8
+        },
+        {
+          "year": 2021,
+          "matched": 97,
+          "viirs_only": 785,
+          "modis_only": 29,
+          "candidate_unassigned": 7
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 1271,
+          "fire_days": 882,
+          "frp_sum_gw": 42.84,
+          "compared_count": 475,
+          "matched_count": 304,
+          "unmatched_count": 171
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 918,
+          "fire_days": 652,
+          "frp_sum_gw": 26.16,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 5443,
+          "fire_days": 3379,
+          "frp_sum_gw": 38.08,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 8399,
+          "fire_days": 5174,
+          "frp_sum_gw": 59.71,
+          "compared_count": 5520,
+          "matched_count": 586,
+          "unmatched_count": 4934
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "7bc21cae96",
+          "date": "2017-09-13",
+          "region": "Lebanon",
+          "lat": 33.7423,
+          "lon": 35.6127,
+          "distance_m": 589.4,
+          "spatial_threshold_m": 1551.4,
+          "time_diff_min": 4.0,
+          "modis_frp_mw": 500.4,
+          "viirs_frp_mw": 7.6,
+          "n_candidates": 9
+        },
+        {
+          "comparison_id": "ebed5f086e",
+          "date": "2017-09-13",
+          "region": "Lebanon",
+          "lat": 33.7423,
+          "lon": 35.6127,
+          "distance_m": 516.5,
+          "spatial_threshold_m": 1551.4,
+          "time_diff_min": 4.0,
+          "modis_frp_mw": 500.4,
+          "viirs_frp_mw": 7.6,
+          "n_candidates": 9
+        },
+        {
+          "comparison_id": "c10952cb3a",
+          "date": "2017-09-13",
+          "region": "Lebanon",
+          "lat": 33.7423,
+          "lon": 35.6127,
+          "distance_m": 985.6,
+          "spatial_threshold_m": 1551.4,
+          "time_diff_min": 4.0,
+          "modis_frp_mw": 500.4,
+          "viirs_frp_mw": 4.0,
+          "n_candidates": 9
+        },
+        {
+          "comparison_id": "de57301f10",
+          "date": "2017-09-13",
+          "region": "Lebanon",
+          "lat": 33.7423,
+          "lon": 35.6127,
+          "distance_m": 1254.7,
+          "spatial_threshold_m": 1551.4,
+          "time_diff_min": 4.0,
+          "modis_frp_mw": 500.4,
+          "viirs_frp_mw": 11.4,
+          "n_candidates": 9
+        },
+        {
+          "comparison_id": "67ec07ed4f",
+          "date": "2017-09-13",
+          "region": "Lebanon",
+          "lat": 33.7423,
+          "lon": 35.6127,
+          "distance_m": 699.9,
+          "spatial_threshold_m": 1551.4,
+          "time_diff_min": 4.0,
+          "modis_frp_mw": 500.4,
+          "viirs_frp_mw": 11.4,
+          "n_candidates": 9
+        },
+        {
+          "comparison_id": "50944b32ad",
+          "date": "2017-09-13",
+          "region": "Lebanon",
+          "lat": 33.7423,
+          "lon": 35.6127,
+          "distance_m": 814.9,
+          "spatial_threshold_m": 1551.4,
+          "time_diff_min": 4.0,
+          "modis_frp_mw": 500.4,
+          "viirs_frp_mw": 11.4,
+          "n_candidates": 9
+        },
+        {
+          "comparison_id": "bea2b7361e",
+          "date": "2017-09-13",
+          "region": "Lebanon",
+          "lat": 33.7423,
+          "lon": 35.6127,
+          "distance_m": 159.1,
+          "spatial_threshold_m": 1551.4,
+          "time_diff_min": 4.0,
+          "modis_frp_mw": 500.4,
+          "viirs_frp_mw": 34.1,
+          "n_candidates": 9
+        },
+        {
+          "comparison_id": "fac56ad6cb",
+          "date": "2017-09-13",
+          "region": "Lebanon",
+          "lat": 33.7423,
+          "lon": 35.6127,
+          "distance_m": 621.9,
+          "spatial_threshold_m": 1551.4,
+          "time_diff_min": 4.0,
+          "modis_frp_mw": 500.4,
+          "viirs_frp_mw": 34.1,
+          "n_candidates": 9
+        }
+      ]
+    },
+    "Palestine": {
+      "total_compared": 4169,
+      "matched": 406,
+      "viirs_only": 3652,
+      "modis_only": 83,
+      "candidate_unassigned": 28,
+      "matched_pct": 9.74,
+      "viirs_only_pct": 87.6,
+      "modis_only_pct": 1.99,
+      "mean_distance_m": 664.6,
+      "mean_threshold_m": 1416.1,
+      "mean_time_diff_min": 24.7,
+      "modis_matched_frp_mean": 43.0,
+      "viirs_matched_frp_mean": 13.9,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 10,
+          "viirs_only": 228,
+          "modis_only": 10,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2013,
+          "matched": 36,
+          "viirs_only": 369,
+          "modis_only": 4,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2014,
+          "matched": 3,
+          "viirs_only": 250,
+          "modis_only": 2,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2015,
+          "matched": 32,
+          "viirs_only": 287,
+          "modis_only": 6,
+          "candidate_unassigned": 3
+        },
+        {
+          "year": 2016,
+          "matched": 87,
+          "viirs_only": 444,
+          "modis_only": 15,
+          "candidate_unassigned": 3
+        },
+        {
+          "year": 2017,
+          "matched": 3,
+          "viirs_only": 253,
+          "modis_only": 3,
+          "candidate_unassigned": 0
+        },
+        {
+          "year": 2018,
+          "matched": 12,
+          "viirs_only": 228,
+          "modis_only": 3,
+          "candidate_unassigned": 1
+        },
+        {
+          "year": 2019,
+          "matched": 50,
+          "viirs_only": 537,
+          "modis_only": 14,
+          "candidate_unassigned": 9
+        },
+        {
+          "year": 2020,
+          "matched": 96,
+          "viirs_only": 453,
+          "modis_only": 10,
+          "candidate_unassigned": 8
+        },
+        {
+          "year": 2021,
+          "matched": 77,
+          "viirs_only": 603,
+          "modis_only": 16,
+          "candidate_unassigned": 4
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 507,
+          "fire_days": 399,
+          "frp_sum_gw": 14.22,
+          "compared_count": 251,
+          "matched_count": 168,
+          "unmatched_count": 83
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 497,
+          "fire_days": 361,
+          "frp_sum_gw": 10.72,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 4025,
+          "fire_days": 2715,
+          "frp_sum_gw": 20.93,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 5928,
+          "fire_days": 3838,
+          "frp_sum_gw": 29.84,
+          "compared_count": 4054,
+          "matched_count": 402,
+          "unmatched_count": 3652
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "537e958753",
+          "date": "2021-06-04",
+          "region": "Palestine",
+          "lat": 31.6994,
+          "lon": 35.0907,
+          "distance_m": 470.6,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 303.7,
+          "viirs_frp_mw": 110.7,
+          "n_candidates": 13
+        },
+        {
+          "comparison_id": "394666ab8d",
+          "date": "2021-06-04",
+          "region": "Palestine",
+          "lat": 31.6994,
+          "lon": 35.0907,
+          "distance_m": 824.5,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 303.7,
+          "viirs_frp_mw": 110.7,
+          "n_candidates": 13
+        },
+        {
+          "comparison_id": "000e6bacd2",
+          "date": "2021-06-04",
+          "region": "Palestine",
+          "lat": 31.6994,
+          "lon": 35.0907,
+          "distance_m": 466.7,
+          "spatial_threshold_m": 1409.5,
+          "time_diff_min": 5.0,
+          "modis_frp_mw": 303.7,
+          "viirs_frp_mw": 53.9,
+          "n_candidates": 13
+        },
+        {
+          "comparison_id": "7f01bc331a",
+          "date": "2021-06-12",
+          "region": "Palestine",
+          "lat": 32.4089,
+          "lon": 35.1593,
+          "distance_m": 960.2,
+          "spatial_threshold_m": 1444.4,
+          "time_diff_min": 6.0,
+          "modis_frp_mw": 172.7,
+          "viirs_frp_mw": 41.4,
+          "n_candidates": 2
+        },
+        {
+          "comparison_id": "9d27cb1860",
+          "date": "2021-06-12",
+          "region": "Palestine",
+          "lat": 32.4089,
+          "lon": 35.1593,
+          "distance_m": 467.5,
+          "spatial_threshold_m": 1444.4,
+          "time_diff_min": 6.0,
+          "modis_frp_mw": 172.7,
+          "viirs_frp_mw": 209.5,
+          "n_candidates": 2
+        },
+        {
+          "comparison_id": "3fcb5b08e8",
+          "date": "2020-06-29",
+          "region": "Palestine",
+          "lat": 32.3951,
+          "lon": 35.4109,
+          "distance_m": 1096.9,
+          "spatial_threshold_m": 2826.4,
+          "time_diff_min": 55.0,
+          "modis_frp_mw": 159.3,
+          "viirs_frp_mw": 6.4,
+          "n_candidates": 3
+        },
+        {
+          "comparison_id": "d7439dc3f2",
+          "date": "2020-06-29",
+          "region": "Palestine",
+          "lat": 32.3951,
+          "lon": 35.4109,
+          "distance_m": 846.1,
+          "spatial_threshold_m": 2826.4,
+          "time_diff_min": 55.0,
+          "modis_frp_mw": 159.3,
+          "viirs_frp_mw": 5.0,
+          "n_candidates": 3
+        },
+        {
+          "comparison_id": "17d2cb23ce",
+          "date": "2020-06-29",
+          "region": "Palestine",
+          "lat": 32.3951,
+          "lon": 35.4109,
+          "distance_m": 1179.7,
+          "spatial_threshold_m": 2826.4,
+          "time_diff_min": 55.0,
+          "modis_frp_mw": 159.3,
+          "viirs_frp_mw": 5.0,
+          "n_candidates": 3
+        }
+      ]
+    },
+    "Syria": {
+      "total_compared": 93363,
+      "matched": 15072,
+      "viirs_only": 74101,
+      "modis_only": 3101,
+      "candidate_unassigned": 1089,
+      "matched_pct": 16.14,
+      "viirs_only_pct": 79.37,
+      "modis_only_pct": 3.32,
+      "mean_distance_m": 681.4,
+      "mean_threshold_m": 1413.4,
+      "mean_time_diff_min": 26.0,
+      "modis_matched_frp_mean": 82.8,
+      "viirs_matched_frp_mean": 20.3,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 1019,
+          "viirs_only": 5428,
+          "modis_only": 189,
+          "candidate_unassigned": 84
+        },
+        {
+          "year": 2013,
+          "matched": 1589,
+          "viirs_only": 8755,
+          "modis_only": 432,
+          "candidate_unassigned": 145
+        },
+        {
+          "year": 2014,
+          "matched": 532,
+          "viirs_only": 3835,
+          "modis_only": 142,
+          "candidate_unassigned": 60
+        },
+        {
+          "year": 2015,
+          "matched": 1581,
+          "viirs_only": 7739,
+          "modis_only": 407,
+          "candidate_unassigned": 129
+        },
+        {
+          "year": 2016,
+          "matched": 804,
+          "viirs_only": 4596,
+          "modis_only": 233,
+          "candidate_unassigned": 79
+        },
+        {
+          "year": 2017,
+          "matched": 612,
+          "viirs_only": 3842,
+          "modis_only": 177,
+          "candidate_unassigned": 50
+        },
+        {
+          "year": 2018,
+          "matched": 340,
+          "viirs_only": 2742,
+          "modis_only": 94,
+          "candidate_unassigned": 26
+        },
+        {
+          "year": 2019,
+          "matched": 4994,
+          "viirs_only": 22001,
+          "modis_only": 866,
+          "candidate_unassigned": 317
+        },
+        {
+          "year": 2020,
+          "matched": 3212,
+          "viirs_only": 12414,
+          "modis_only": 444,
+          "candidate_unassigned": 177
+        },
+        {
+          "year": 2021,
+          "matched": 389,
+          "viirs_only": 2749,
+          "modis_only": 117,
+          "candidate_unassigned": 22
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 14666,
+          "fire_days": 9079,
+          "frp_sum_gw": 863.0,
+          "compared_count": 8991,
+          "matched_count": 5890,
+          "unmatched_count": 3101
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 18365,
+          "fire_days": 12208,
+          "frp_sum_gw": 640.71,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 68400,
+          "fire_days": 29256,
+          "frp_sum_gw": 755.09,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 109644,
+          "fire_days": 47279,
+          "frp_sum_gw": 1117.34,
+          "compared_count": 89173,
+          "matched_count": 15072,
+          "unmatched_count": 74101
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "dfcd251892",
+          "date": "2014-07-24",
+          "region": "Syria",
+          "lat": 36.3881,
+          "lon": 40.7634,
+          "distance_m": 586.5,
+          "spatial_threshold_m": 1592.0,
+          "time_diff_min": 12.0,
+          "modis_frp_mw": 3562.3,
+          "viirs_frp_mw": 276.3,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "9cfd818e57",
+          "date": "2014-07-24",
+          "region": "Syria",
+          "lat": 36.3881,
+          "lon": 40.7634,
+          "distance_m": 292.3,
+          "spatial_threshold_m": 1595.7,
+          "time_diff_min": 12.0,
+          "modis_frp_mw": 3562.3,
+          "viirs_frp_mw": 42.4,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "bcccdd4d91",
+          "date": "2014-07-24",
+          "region": "Syria",
+          "lat": 36.3881,
+          "lon": 40.7634,
+          "distance_m": 588.4,
+          "spatial_threshold_m": 1592.0,
+          "time_diff_min": 12.0,
+          "modis_frp_mw": 3562.3,
+          "viirs_frp_mw": 385.1,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "7880068437",
+          "date": "2014-07-24",
+          "region": "Syria",
+          "lat": 36.3881,
+          "lon": 40.7634,
+          "distance_m": 258.0,
+          "spatial_threshold_m": 1592.0,
+          "time_diff_min": 12.0,
+          "modis_frp_mw": 3562.3,
+          "viirs_frp_mw": 276.3,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "f689fb2c75",
+          "date": "2013-08-29",
+          "region": "Syria",
+          "lat": 35.5015,
+          "lon": 36.2192,
+          "distance_m": 431.5,
+          "spatial_threshold_m": 2153.8,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2293.9,
+          "viirs_frp_mw": 81.1,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "64bd586153",
+          "date": "2013-08-29",
+          "region": "Syria",
+          "lat": 35.5015,
+          "lon": 36.2192,
+          "distance_m": 259.4,
+          "spatial_threshold_m": 2153.8,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2293.9,
+          "viirs_frp_mw": 4.5,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "354cf542a3",
+          "date": "2013-08-29",
+          "region": "Syria",
+          "lat": 35.5015,
+          "lon": 36.2192,
+          "distance_m": 905.9,
+          "spatial_threshold_m": 2153.8,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2293.9,
+          "viirs_frp_mw": 81.1,
+          "n_candidates": 14
+        },
+        {
+          "comparison_id": "9b1e2271f7",
+          "date": "2013-08-29",
+          "region": "Syria",
+          "lat": 35.5015,
+          "lon": 36.2192,
+          "distance_m": 924.9,
+          "spatial_threshold_m": 2153.8,
+          "time_diff_min": 43.0,
+          "modis_frp_mw": 2293.9,
+          "viirs_frp_mw": 81.1,
+          "n_candidates": 14
+        }
+      ]
+    },
+    "Turkey": {
+      "total_compared": 361327,
+      "matched": 57956,
+      "viirs_only": 277275,
+      "modis_only": 21044,
+      "candidate_unassigned": 5052,
+      "matched_pct": 16.04,
+      "viirs_only_pct": 76.74,
+      "modis_only_pct": 5.82,
+      "mean_distance_m": 663.6,
+      "mean_threshold_m": 1379.2,
+      "mean_time_diff_min": 24.7,
+      "modis_matched_frp_mean": 61.4,
+      "viirs_matched_frp_mean": 15.3,
+      "yearly_matches": [
+        {
+          "year": 2012,
+          "matched": 4181,
+          "viirs_only": 20598,
+          "modis_only": 1539,
+          "candidate_unassigned": 322
+        },
+        {
+          "year": 2013,
+          "matched": 6497,
+          "viirs_only": 33393,
+          "modis_only": 2448,
+          "candidate_unassigned": 635
+        },
+        {
+          "year": 2014,
+          "matched": 3516,
+          "viirs_only": 18555,
+          "modis_only": 1507,
+          "candidate_unassigned": 300
+        },
+        {
+          "year": 2015,
+          "matched": 10740,
+          "viirs_only": 45507,
+          "modis_only": 3366,
+          "candidate_unassigned": 992
+        },
+        {
+          "year": 2016,
+          "matched": 8023,
+          "viirs_only": 38589,
+          "modis_only": 2630,
+          "candidate_unassigned": 718
+        },
+        {
+          "year": 2017,
+          "matched": 5038,
+          "viirs_only": 26215,
+          "modis_only": 2105,
+          "candidate_unassigned": 460
+        },
+        {
+          "year": 2018,
+          "matched": 3717,
+          "viirs_only": 21974,
+          "modis_only": 1742,
+          "candidate_unassigned": 367
+        },
+        {
+          "year": 2019,
+          "matched": 4228,
+          "viirs_only": 24012,
+          "modis_only": 1990,
+          "candidate_unassigned": 348
+        },
+        {
+          "year": 2020,
+          "matched": 4076,
+          "viirs_only": 27645,
+          "modis_only": 1842,
+          "candidate_unassigned": 402
+        },
+        {
+          "year": 2021,
+          "matched": 7940,
+          "viirs_only": 20787,
+          "modis_only": 1875,
+          "candidate_unassigned": 508
+        }
+      ],
+      "satellites": [
+        {
+          "instrument": "MODIS",
+          "satellite": "Aqua",
+          "detection_count": 116427,
+          "fire_days": 74768,
+          "frp_sum_gw": 3812.84,
+          "compared_count": 48177,
+          "matched_count": 27133,
+          "unmatched_count": 21044
+        },
+        {
+          "instrument": "MODIS",
+          "satellite": "Terra",
+          "detection_count": 127217,
+          "fire_days": 80362,
+          "frp_sum_gw": 3642.24,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "NOAA-20",
+          "detection_count": 222186,
+          "fire_days": 108397,
+          "frp_sum_gw": 1907.17,
+          "compared_count": 0,
+          "matched_count": 0,
+          "unmatched_count": 0
+        },
+        {
+          "instrument": "VIIRS",
+          "satellite": "S-NPP",
+          "detection_count": 439312,
+          "fire_days": 200556,
+          "frp_sum_gw": 3672.99,
+          "compared_count": 335261,
+          "matched_count": 57986,
+          "unmatched_count": 277275
+        }
+      ],
+      "top_matched_pairs": [
+        {
+          "comparison_id": "a9d33f8088",
+          "date": "2021-07-29",
+          "region": "Turkey",
+          "lat": 36.8497,
+          "lon": 31.5612,
+          "distance_m": 855.9,
+          "spatial_threshold_m": 1500.2,
+          "time_diff_min": 59.0,
+          "modis_frp_mw": 4299.6,
+          "viirs_frp_mw": 4.4,
+          "n_candidates": 11
+        },
+        {
+          "comparison_id": "76c1f2b9ba",
+          "date": "2021-07-29",
+          "region": "Turkey",
+          "lat": 36.8497,
+          "lon": 31.5612,
+          "distance_m": 1139.5,
+          "spatial_threshold_m": 1500.2,
+          "time_diff_min": 59.0,
+          "modis_frp_mw": 4299.6,
+          "viirs_frp_mw": 36.6,
+          "n_candidates": 11
+        },
+        {
+          "comparison_id": "374acb67e6",
+          "date": "2021-07-29",
+          "region": "Turkey",
+          "lat": 36.8497,
+          "lon": 31.5612,
+          "distance_m": 865.1,
+          "spatial_threshold_m": 1500.2,
+          "time_diff_min": 59.0,
+          "modis_frp_mw": 4299.6,
+          "viirs_frp_mw": 12.7,
+          "n_candidates": 11
+        },
+        {
+          "comparison_id": "7dcc1b8f7d",
+          "date": "2021-07-28",
+          "region": "Turkey",
+          "lat": 36.8613,
+          "lon": 31.3502,
+          "distance_m": 404.4,
+          "spatial_threshold_m": 1276.1,
+          "time_diff_min": 19.0,
+          "modis_frp_mw": 3258.0,
+          "viirs_frp_mw": 92.6,
+          "n_candidates": 19
+        },
+        {
+          "comparison_id": "5e1384b460",
+          "date": "2021-07-28",
+          "region": "Turkey",
+          "lat": 36.8613,
+          "lon": 31.3502,
+          "distance_m": 317.6,
+          "spatial_threshold_m": 1276.1,
+          "time_diff_min": 19.0,
+          "modis_frp_mw": 3258.0,
+          "viirs_frp_mw": 86.6,
+          "n_candidates": 19
+        },
+        {
+          "comparison_id": "1890579291",
+          "date": "2021-07-28",
+          "region": "Turkey",
+          "lat": 36.8613,
+          "lon": 31.3502,
+          "distance_m": 298.0,
+          "spatial_threshold_m": 1276.1,
+          "time_diff_min": 19.0,
+          "modis_frp_mw": 3258.0,
+          "viirs_frp_mw": 66.7,
+          "n_candidates": 19
+        },
+        {
+          "comparison_id": "08442ee39b",
+          "date": "2021-07-28",
+          "region": "Turkey",
+          "lat": 36.8613,
+          "lon": 31.3502,
+          "distance_m": 158.5,
+          "spatial_threshold_m": 1276.1,
+          "time_diff_min": 19.0,
+          "modis_frp_mw": 3258.0,
+          "viirs_frp_mw": 105.3,
+          "n_candidates": 19
+        },
+        {
+          "comparison_id": "087b5a6c18",
+          "date": "2013-07-28",
+          "region": "Turkey",
+          "lat": 40.2606,
+          "lon": 26.4552,
+          "distance_m": 674.2,
+          "spatial_threshold_m": 1316.3,
+          "time_diff_min": 54.0,
+          "modis_frp_mw": 3123.3,
+          "viirs_frp_mw": 137.4,
+          "n_candidates": 9
+        }
+      ]
+    }
+  }
+}

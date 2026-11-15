@@ -1,0 +1,12 @@
+{
+ "every_compared_modis_in_output": true,
+ "every_compared_viirs_in_output": true,
+ "each_viirs_exactly_once": true,
+ "unmatched_modis_exactly_once": true,
+ "stats_modis_total": true,
+ "stats_viirs_total": true,
+ "stats_viirs_partition": true,
+ "stats_modis_partition": true,
+ "trends_total": true,
+ "trends_compared": true
+}

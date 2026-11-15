@@ -1,0 +1,59 @@
+# Source products (plan Step 1). One entry per FIRMS product the pipeline can ingest.
+# Field meanings and limitations: docs/source_specification.md
+
+firms:
+  # Yearly per-country CSV archive (standard processing, science quality). No key needed.
+  # File URL pattern: {country_base_url}/{country_dir}/{year}/{country_dir}_{year}_{Country}.csv
+  country_base_url: https://firms.modaps.eosdis.nasa.gov/data/country
+  # Area API (needs a free MAP_KEY in the FIRMS_MAP_KEY environment variable).
+  # URL pattern: {api_base_url}/{MAP_KEY}/{SOURCE}/{west},{south},{east},{north}/{DAY_RANGE}/{YYYY-MM-DD}
+  api_base_url: https://firms.modaps.eosdis.nasa.gov/api/area/csv
+  attribution: >-
+    We acknowledge the use of data and/or imagery from NASA's Fire Information for Resource
+    Management System (FIRMS) (https://earthdata.nasa.gov/firms), part of NASA's Earth Science Data
+    and Information System (ESDIS).
+
+products:
+  modis_sp:
+    instrument: MODIS
+    product: MODIS Collection 6.1 active fire (MCD14ML, FIRMS standard processing)
+    satellites: [Terra, Aqua]
+    access: country_archive
+    country_dir: modis
+    first_year: 2000            # Terra from Nov 2000, Aqua from Jul 2002
+    pixel_size_km_nadir: 1.0
+  viirs_snpp_sp:
+    instrument: VIIRS
+    product: VIIRS S-NPP 375 m active fire (VNP14IMG, collection 2, FIRMS standard processing)
+    satellites: [S-NPP]
+    access: country_archive
+    country_dir: viirs-snpp
+    first_year: 2012            # from 2012-01-20; delivery ends Nov 2026 (FIRMS notice)
+    pixel_size_km_nadir: 0.375
+  viirs_noaa20_sp:
+    instrument: VIIRS
+    product: VIIRS NOAA-20 375 m active fire (VJ114IMG, collection 2, FIRMS standard processing)
+    satellites: [NOAA-20]
+    access: country_archive
+    country_dir: viirs-jpss1
+    first_year: 2018            # from 2018-04-01
+    pixel_size_km_nadir: 0.375
+  # Near-real-time sources (current year). Disabled by default in pipeline.yaml.
+  modis_nrt:
+    instrument: MODIS
+    product: MODIS C6.1 NRT (MCD14DL)
+    satellites: [Terra, Aqua]
+    access: area_api
+    api_source: MODIS_NRT
+  viirs_noaa20_nrt:
+    instrument: VIIRS
+    product: VIIRS NOAA-20 375 m NRT (VJ114IMGTDL_NRT)
+    satellites: [NOAA-20]
+    access: area_api
+    api_source: VIIRS_NOAA20_NRT
+  viirs_noaa21_nrt:
+    instrument: VIIRS
+    product: VIIRS NOAA-21 375 m NRT (VJ214IMGTDL_NRT)
+    satellites: [NOAA-21]
+    access: area_api
+    api_source: VIIRS_NOAA21_NRT

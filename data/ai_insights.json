@@ -1,0 +1,371 @@
+{
+  "Cyprus": {
+    "viirs_to_modis_overlap_ratio": 3.65,
+    "total_extreme_days_detected": 98,
+    "top_5_extreme_events": [
+      {
+        "date": "2007-07-16",
+        "harmonized_cells": 12.19,
+        "frp_mw": 4263.8,
+        "frp_per_cell": 349.78,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2008-06-18",
+        "harmonized_cells": 8.12,
+        "frp_mw": 3233.8,
+        "frp_per_cell": 398.25,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2007-06-27",
+        "harmonized_cells": 4.06,
+        "frp_mw": 668.1,
+        "frp_per_cell": 164.56,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2003-10-11",
+        "harmonized_cells": 8.0,
+        "frp_mw": 370.3,
+        "frp_per_cell": 46.29,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2003-10-12",
+        "harmonized_cells": 16.0,
+        "frp_mw": 331.6,
+        "frp_per_cell": 20.73,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      }
+    ]
+  },
+  "Egypt": {
+    "viirs_to_modis_overlap_ratio": 7.32,
+    "total_extreme_days_detected": 387,
+    "top_5_extreme_events": [
+      {
+        "date": "2011-09-27",
+        "harmonized_cells": 47.19,
+        "frp_mw": 2741.1,
+        "frp_per_cell": 58.09,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2025-05-15",
+        "harmonized_cells": 13.0,
+        "frp_mw": 1997.9,
+        "frp_per_cell": 153.68,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2024-06-13",
+        "harmonized_cells": 14.0,
+        "frp_mw": 1613.8,
+        "frp_per_cell": 115.27,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2021-05-25",
+        "harmonized_cells": 15.0,
+        "frp_mw": 1354.2,
+        "frp_per_cell": 90.28,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2006-09-25",
+        "harmonized_cells": 110.1,
+        "frp_mw": 1191.8,
+        "frp_per_cell": 10.82,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      }
+    ]
+  },
+  "Greece": {
+    "viirs_to_modis_overlap_ratio": 2.81,
+    "total_extreme_days_detected": 330,
+    "top_5_extreme_events": [
+      {
+        "date": "2007-08-25",
+        "harmonized_cells": 163.35,
+        "frp_mw": 178501.6,
+        "frp_per_cell": 1092.76,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2023-08-22",
+        "harmonized_cells": 45.0,
+        "frp_mw": 81366.4,
+        "frp_per_cell": 1808.14,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2007-08-26",
+        "harmonized_cells": 156.82,
+        "frp_mw": 78721.0,
+        "frp_per_cell": 501.98,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2021-08-06",
+        "harmonized_cells": 41.0,
+        "frp_mw": 54806.2,
+        "frp_per_cell": 1336.74,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2007-08-24",
+        "harmonized_cells": 111.08,
+        "frp_mw": 49070.8,
+        "frp_per_cell": 441.76,
+        "classified_regime": "High-Intensity Forest Megafire"
+      }
+    ]
+  },
+  "Israel": {
+    "viirs_to_modis_overlap_ratio": 4.67,
+    "total_extreme_days_detected": 329,
+    "top_5_extreme_events": [
+      {
+        "date": "2010-12-03",
+        "harmonized_cells": 23.98,
+        "frp_mw": 5215.9,
+        "frp_per_cell": 217.51,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2010-12-02",
+        "harmonized_cells": 14.39,
+        "frp_mw": 2767.6,
+        "frp_per_cell": 192.33,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2013-04-29",
+        "harmonized_cells": 56.0,
+        "frp_mw": 1177.8,
+        "frp_per_cell": 21.03,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      },
+      {
+        "date": "2024-07-04",
+        "harmonized_cells": 10.0,
+        "frp_mw": 1132.7,
+        "frp_per_cell": 113.27,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2020-10-09",
+        "harmonized_cells": 17.0,
+        "frp_mw": 1073.4,
+        "frp_per_cell": 63.14,
+        "classified_regime": "High-Intensity Forest Megafire"
+      }
+    ]
+  },
+  "Jordan": {
+    "viirs_to_modis_overlap_ratio": 7.32,
+    "total_extreme_days_detected": 171,
+    "top_5_extreme_events": [
+      {
+        "date": "2011-06-16",
+        "harmonized_cells": 7.24,
+        "frp_mw": 308.0,
+        "frp_per_cell": 42.54,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2006-07-03",
+        "harmonized_cells": 14.47,
+        "frp_mw": 196.9,
+        "frp_per_cell": 13.61,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      },
+      {
+        "date": "2011-08-13",
+        "harmonized_cells": 14.47,
+        "frp_mw": 165.4,
+        "frp_per_cell": 11.43,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      },
+      {
+        "date": "2010-07-05",
+        "harmonized_cells": 7.24,
+        "frp_mw": 156.7,
+        "frp_per_cell": 21.64,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      },
+      {
+        "date": "2011-07-28",
+        "harmonized_cells": 14.47,
+        "frp_mw": 138.3,
+        "frp_per_cell": 9.56,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      }
+    ]
+  },
+  "Lebanon": {
+    "viirs_to_modis_overlap_ratio": 6.3,
+    "total_extreme_days_detected": 187,
+    "top_5_extreme_events": [
+      {
+        "date": "2007-10-02",
+        "harmonized_cells": 33.48,
+        "frp_mw": 1488.9,
+        "frp_per_cell": 44.47,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2020-10-09",
+        "harmonized_cells": 23.0,
+        "frp_mw": 1061.2,
+        "frp_per_cell": 46.14,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2007-08-02",
+        "harmonized_cells": 13.58,
+        "frp_mw": 815.8,
+        "frp_per_cell": 60.07,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2024-09-23",
+        "harmonized_cells": 16.0,
+        "frp_mw": 749.7,
+        "frp_per_cell": 46.86,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2021-11-09",
+        "harmonized_cells": 5.0,
+        "frp_mw": 710.9,
+        "frp_per_cell": 142.18,
+        "classified_regime": "High-Intensity Forest Megafire"
+      }
+    ]
+  },
+  "Palestine": {
+    "viirs_to_modis_overlap_ratio": 6.73,
+    "total_extreme_days_detected": 161,
+    "top_5_extreme_events": [
+      {
+        "date": "2021-06-09",
+        "harmonized_cells": 5.0,
+        "frp_mw": 313.2,
+        "frp_per_cell": 62.64,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2003-05-19",
+        "harmonized_cells": 22.67,
+        "frp_mw": 297.5,
+        "frp_per_cell": 13.12,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      },
+      {
+        "date": "2021-05-18",
+        "harmonized_cells": 10.0,
+        "frp_mw": 199.2,
+        "frp_per_cell": 19.92,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      },
+      {
+        "date": "2020-10-09",
+        "harmonized_cells": 8.0,
+        "frp_mw": 156.9,
+        "frp_per_cell": 19.61,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      },
+      {
+        "date": "2010-06-21",
+        "harmonized_cells": 17.44,
+        "frp_mw": 151.7,
+        "frp_per_cell": 8.7,
+        "classified_regime": "Widespread Agricultural / Crop Burn"
+      }
+    ]
+  },
+  "Syria": {
+    "viirs_to_modis_overlap_ratio": 3.41,
+    "total_extreme_days_detected": 392,
+    "top_5_extreme_events": [
+      {
+        "date": "2020-10-10",
+        "harmonized_cells": 57.0,
+        "frp_mw": 10359.7,
+        "frp_per_cell": 181.75,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2020-10-09",
+        "harmonized_cells": 54.0,
+        "frp_mw": 8602.1,
+        "frp_per_cell": 159.3,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2019-06-27",
+        "harmonized_cells": 48.0,
+        "frp_mw": 8585.0,
+        "frp_per_cell": 178.85,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2014-07-24",
+        "harmonized_cells": 14.0,
+        "frp_mw": 7169.7,
+        "frp_per_cell": 512.12,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2025-08-13",
+        "harmonized_cells": 8.0,
+        "frp_mw": 7140.0,
+        "frp_per_cell": 892.5,
+        "classified_regime": "High-Intensity Forest Megafire"
+      }
+    ]
+  },
+  "Turkey": {
+    "viirs_to_modis_overlap_ratio": 2.49,
+    "total_extreme_days_detected": 295,
+    "top_5_extreme_events": [
+      {
+        "date": "2021-07-29",
+        "harmonized_cells": 57.0,
+        "frp_mw": 34777.0,
+        "frp_per_cell": 610.12,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2021-07-30",
+        "harmonized_cells": 52.0,
+        "frp_mw": 23524.0,
+        "frp_per_cell": 452.38,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2021-07-31",
+        "harmonized_cells": 40.0,
+        "frp_mw": 21675.2,
+        "frp_per_cell": 541.88,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2021-08-01",
+        "harmonized_cells": 39.0,
+        "frp_mw": 21168.9,
+        "frp_per_cell": 542.79,
+        "classified_regime": "High-Intensity Forest Megafire"
+      },
+      {
+        "date": "2021-08-05",
+        "harmonized_cells": 41.0,
+        "frp_mw": 17109.7,
+        "frp_per_cell": 417.31,
+        "classified_regime": "High-Intensity Forest Megafire"
+      }
+    ]
+  }
+}

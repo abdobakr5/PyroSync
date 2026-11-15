@@ -1,0 +1,69 @@
+# Pipeline settings. Change these instead of editing code.
+
+data_dir: data                      # relative to the repository root, or an absolute path
+
+region:
+  name: east_med
+  countries: [Cyprus, Egypt, Greece, Israel, Jordan, Lebanon, Palestine, Syria, Turkey]
+  # Bounding box used only for NRT API requests (west, south, east, north in degrees)
+  bbox: [19.0, 21.5, 45.0, 42.5]
+
+ingestion:
+  products: [modis_sp, viirs_snpp_sp, viirs_noaa20_sp]
+  start_year: 2000
+  end_year: 2025
+  timeout_seconds: 60
+  max_retries: 4
+  backoff_seconds: 2.0
+  workers: 4
+  nrt:
+    enabled: false                  # true = also pull recent days from the API (needs FIRMS_MAP_KEY)
+    products: [viirs_noaa20_nrt, viirs_noaa21_nrt, modis_nrt]
+    days_back: 10
+    chunk_days: 5                   # days per API request
+
+silver:
+  processing_version: silver-1.0.0
+
+quality:
+  max_volume_change_pct: 50         # warn when a product/year row count moves more than this vs the last run
+
+matching:
+  rule_version: match-1.0.0
+  # Aqua (MODIS) and S-NPP (VIIRS) both cross the equator around 13:30 local time,
+  # so they see the same fires within minutes. Terra (10:30) is not paired by default.
+  modis_satellites: [Aqua]
+  viirs_satellites: [S-NPP]
+  vegetation_only: true             # use fire_type == 0 (or missing) only
+  exclude_static_sources: true      # drop gas flares / industry found by the static-source rule
+  exclude_low_confidence: false
+  spatial:
+    mode: footprint                 # footprint = threshold from both pixel sizes; fixed = fixed_threshold_m
+    fixed_threshold_m: 1500
+    footprint_factor: 1.0
+    min_threshold_m: 750
+    max_threshold_m: 5000
+  temporal_threshold_seconds: 1200
+  pass_evidence_radius_km: 1000     # "the other sensor was overhead" evidence radius
+  sensitivity:
+    spatial_m: [750, 1500, 3000, 5000]
+    temporal_s: [300, 600, 1200, 2400]
+
+flags:
+  static_days_per_year: 60          # a ~1 km cell with fire on more days than this in a year = static source
+
+gold:
+  grid_deg: 0.1
+  calendar:
+    start: '2003-01-01'
+    overlap: ['2012-02-01', '2020-12-31']
+    viirs_satellites: [S-NPP]
+    min_modis: 30
+    keep_low_conf: false
+    smooth_days: 7
+    season_window: 15
+    min_active: 2.0
+
+database:
+  url_env: DATABASE_URL             # e.g. postgresql+psycopg://user:pass@localhost:5432/firms
+  schema: firms
